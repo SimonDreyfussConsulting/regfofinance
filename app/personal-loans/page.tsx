@@ -200,7 +200,7 @@ export default function PersonalLoans() {
                         Check Rates →
                       </button>
                       <Link
-                        href={index === 0 ? '/personal-loans/sofi-personal-loans-review' : `/personal-loans/${lender.name.toLowerCase().replace(/\s+/g, '-')}`}
+                        href={index === 0 ? '/personal-loans/sofi-review' : `/personal-loans/${lender.name.toLowerCase().replace(/\s+/g, '-')}`}
                         className="bg-white border-2 border-[#6B7280]/30 text-[#1F2937] font-semibold py-3 px-6 rounded-lg hover:border-[#6B7280] transition-colors"
                       >
                         Full Review

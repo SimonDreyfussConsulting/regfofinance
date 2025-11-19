@@ -81,8 +81,8 @@ export default function Home() {
             <Link href="/personal-loans/sofi-review" className="card group">
               <div className="relative h-48 overflow-hidden rounded-t-xl bg-gradient-to-br from-[#06B6D4]/20 to-[#3B82F6]/20 flex items-center justify-center">
                 <div className="text-center p-6">
-                  <div className="text-5xl font-bold text-[#3B82F6] mb-2">$0</div>
-                  <div className="text-xl font-semibold">in fees</div>
+                  <div className="text-5xl font-bold text-[#06B6D4] mb-2">127+</div>
+                  <div className="text-xl font-semibold">real borrowers</div>
                 </div>
                 <div className="absolute top-4 left-4">
                   <span className="bg-[#06B6D4] text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -91,16 +91,16 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-[#3B82F6] transition-colors">
-                  SoFi Personal Loans: Why 8,000+ Borrowers Love (or Hate) Them
+                <h3 className="text-xl font-bold mb-2 group-hover:text-[#06B6D4] transition-colors">
+                  What 127+ Borrowers Really Think About SoFi Personal Loans
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  No origination fees sounds great. But is SoFi actually the best deal? We dug through thousands of reviews to find out.
+                  We analyzed real experiences from Reddit and MyFICO. Here's what you need to know about approval rates, APRs, and funding times.
                 </p>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <span>7 min read</span>
+                  <span>8 min read</span>
                   <span>•</span>
-                  <span>4.3★ Community Rating</span>
+                  <span>3.8★ Based on Real Data</span>
                 </div>
               </div>
             </Link>
