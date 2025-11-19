@@ -199,7 +199,10 @@ export default function PersonalLoans() {
                       <button className="flex-1 bg-[#06B6D4] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#06B6D4]/90 transition-colors">
                         Check Rates →
                       </button>
-                      <Link href={`/personal-loans/${lender.name.toLowerCase().replace(/\s+/g, '-')}`} className="bg-white border-2 border-[#6B7280]/30 text-[#1F2937] font-semibold py-3 px-6 rounded-lg hover:border-[#6B7280] transition-colors">
+                      <Link
+                        href={index === 0 ? '/personal-loans/sofi-personal-loans-review' : `/personal-loans/${lender.name.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="bg-white border-2 border-[#6B7280]/30 text-[#1F2937] font-semibold py-3 px-6 rounded-lg hover:border-[#6B7280] transition-colors"
+                      >
                         Full Review
                       </Link>
                     </div>
