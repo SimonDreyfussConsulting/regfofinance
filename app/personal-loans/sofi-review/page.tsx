@@ -534,6 +534,130 @@ export default function SoFiPersonalLoansReview() {
                   </div>
                 </div>
               </div>
+
+              {/* Comparison Table */}
+              <div className="mt-12 pt-8 border-t border-[#6B7280]/20">
+                <h2 className="text-2xl font-bold mb-6 text-[#1F2937]">Compare SoFi with Other Top Lenders</h2>
+                <div className="overflow-x-auto">
+                  <table className="min-w-full border-collapse border border-[#6B7280]/30 rounded-lg">
+                    <thead className="bg-gradient-to-r from-[#EFF6FF] to-[#CCFBF1]">
+                      <tr>
+                        <th className="border border-[#6B7280]/30 px-4 py-3 text-left font-semibold text-[#1F2937]">Lender</th>
+                        <th className="border border-[#6B7280]/30 px-4 py-3 text-left font-semibold text-[#1F2937]">APR Range</th>
+                        <th className="border border-[#6B7280]/30 px-4 py-3 text-left font-semibold text-[#1F2937]">Loan Amounts</th>
+                        <th className="border border-[#6B7280]/30 px-4 py-3 text-left font-semibold text-[#1F2937]">Best For</th>
+                        <th className="border border-[#6B7280]/30 px-4 py-3 text-left font-semibold text-[#1F2937]"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-[#EFF6FF] hover:bg-[#DBEAFE]">
+                        <td className="border border-[#6B7280]/30 px-4 py-3 font-semibold text-[#1F2937]">SoFi</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">7.99%-23.43%</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">$5,000-$100,000</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">Fast funding, large loans</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">
+                          <span className="text-[#06B6D4] font-semibold">Current Page</span>
+                        </td>
+                      </tr>
+                      <tr className="bg-white hover:bg-[#F3F4F6]">
+                        <td className="border border-[#6B7280]/30 px-4 py-3 font-semibold text-[#1F2937]">Upstart</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">6.5%-35.99%</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">$1,000-$50,000</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">Fair credit, AI approval</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">
+                          <Link href="/personal-loans/upstart-review" className="text-[#06B6D4] hover:underline font-semibold">
+                            Read Review →
+                          </Link>
+                        </td>
+                      </tr>
+                      <tr className="bg-[#F3F4F6] hover:bg-[#E5E7EB]">
+                        <td className="border border-[#6B7280]/30 px-4 py-3 font-semibold text-[#1F2937]">Marcus</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">6.99%-24.99%</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">$3,500-$40,000</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">Competitive rates, no fees</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">
+                          <Link href="/personal-loans/marcus-review" className="text-[#06B6D4] hover:underline font-semibold">
+                            Read Review →
+                          </Link>
+                        </td>
+                      </tr>
+                      <tr className="bg-white hover:bg-[#F3F4F6]">
+                        <td className="border border-[#6B7280]/30 px-4 py-3 font-semibold text-[#1F2937]">LightStream</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">6.99%-25.49%</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">$5,000-$100,000</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">Excellent credit, same-day funding</td>
+                        <td className="border border-[#6B7280]/30 px-4 py-3">
+                          <Link href="/personal-loans/lightstream-review" className="text-[#06B6D4] hover:underline font-semibold">
+                            Read Review →
+                          </Link>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Explore More Section */}
+              <div className="mt-12 pt-8 border-t border-[#6B7280]/20">
+                <h2 className="text-2xl font-bold mb-6 text-[#1F2937]">Explore More Personal Loan Guides</h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Compare by Credit Score */}
+                  <div>
+                    <h3 className="text-lg font-bold mb-4 text-[#1F2937] flex items-center">
+                      <span className="text-2xl mr-2">📊</span>
+                      Compare by Credit Score
+                    </h3>
+                    <ul className="space-y-3">
+                      <li>
+                        <Link href="/personal-loans/best-good-credit" className="text-[#06B6D4] hover:underline flex items-center">
+                          <span className="mr-2">→</span>
+                          Best Personal Loans for Good Credit (680-740)
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/personal-loans/best-fair-credit" className="text-[#06B6D4] hover:underline flex items-center">
+                          <span className="mr-2">→</span>
+                          Best Personal Loans for Fair Credit (600-679)
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/personal-loans/best-bad-credit" className="text-[#06B6D4] hover:underline flex items-center">
+                          <span className="mr-2">→</span>
+                          Best Personal Loans for Bad Credit (Below 600)
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Compare by Purpose */}
+                  <div>
+                    <h3 className="text-lg font-bold mb-4 text-[#1F2937] flex items-center">
+                      <span className="text-2xl mr-2">🎯</span>
+                      Compare by Purpose
+                    </h3>
+                    <ul className="space-y-3">
+                      <li>
+                        <Link href="/personal-loans/best-debt-consolidation" className="text-[#06B6D4] hover:underline flex items-center">
+                          <span className="mr-2">→</span>
+                          Best Personal Loans for Debt Consolidation
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/personal-loans/best-quick-approval" className="text-[#06B6D4] hover:underline flex items-center">
+                          <span className="mr-2">→</span>
+                          Best Personal Loans for Quick Approval & Funding
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/personal-loans/avant-review" className="text-[#06B6D4] hover:underline flex items-center">
+                          <span className="mr-2">→</span>
+                          Avant Personal Loans Review
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
         </div>
