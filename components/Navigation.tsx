@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Search } from "lucide-react";
 import Logo from "./Logo";
-import LogoIcon from "./LogoIcon";
 
 const navLinks = [
   { label: "Make Money", href: "/make-money" },
@@ -26,10 +25,12 @@ export default function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Logo />
+            <div className="flex-shrink-0 mr-4">
+              <Logo />
+            </div>
 
             {/* Desktop Nav Links */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 flex-1 justify-center">
               {navLinks.map((link) => (
                 <Link key={link.href} href={link.href}>
                   <button className="px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-md transition">
@@ -49,10 +50,12 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       <nav className="md:hidden bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-2 sm:px-4">
           <div className="flex items-center justify-between h-14">
-            {/* Logo */}
-            <LogoIcon />
+            {/* Logo - Full logo on mobile too */}
+            <div className="flex-shrink-0 mr-2">
+              <Logo />
+            </div>
 
             {/* Hamburger Menu Button */}
             <button
