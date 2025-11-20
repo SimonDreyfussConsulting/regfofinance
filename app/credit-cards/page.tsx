@@ -3,7 +3,9 @@ import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  robots: "noindex, nofollow",
+  title: "Best Credit Cards - Real Reviews from 27,400+ Cardholders",
+  description: "Find the best credit cards based on 27,400+ real user reviews. Chase Sapphire Preferred, Amex Gold, and Capital One Venture compared by real people.",
+  keywords: "best credit cards, Chase Sapphire Preferred, Amex Gold Card, Capital One Venture, credit card reviews",
 };
 
 const creditCards = [
