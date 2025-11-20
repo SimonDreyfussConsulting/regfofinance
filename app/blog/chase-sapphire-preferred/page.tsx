@@ -8,8 +8,8 @@ export const metadata = {
   title: "Chase Sapphire Preferred: What 10,000 Reddit Users Really Think | RegularFolkFinance",
   description: "We analyzed 10,000+ Reddit comments about the Chase Sapphire Preferred. Here's what real cardholders love and hate about this popular travel card.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 

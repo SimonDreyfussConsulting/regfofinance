@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     canonical: "https://regularfolkfinance.com/personal-loans/sofi-review",
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   }
 };
 

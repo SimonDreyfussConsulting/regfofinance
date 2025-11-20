@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   title: "Reverse Mortgages: What 30,000 Seniors Told Us | RegularFolkFinance",
   description: "Real stories and experiences from 30,000+ seniors who took out reverse mortgages. Learn what worked, what didn't, and what to watch out for.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 

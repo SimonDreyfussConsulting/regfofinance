@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   title: "Best Personal Loans 2025 | RegularFolkFinance",
   description: "Compare personal loans based on 25,000+ real borrower reviews. Find lenders with fair rates and no hidden fees.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 
