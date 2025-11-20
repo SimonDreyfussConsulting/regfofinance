@@ -24,9 +24,8 @@ export default function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <img src="/images/rff_logo_horizontal_512px.png" alt="RegularFolkFinance" className="h-8 w-auto" />
-              <span className="font-bold text-xl">RegularFolk<span style={{color: 'var(--primary)'}}>Finance</span></span>
+            <Link href="/" className="flex items-center" aria-label="RegularFolkFinance Homepage">
+              <img src="/images/rff-logo.svg" alt="RegularFolkFinance" className="h-8 w-auto" />
             </Link>
 
             {/* Desktop Nav Links */}
@@ -53,9 +52,8 @@ export default function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-14">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <img src="/images/rff_logo_horizontal_512px.png" alt="RegularFolkFinance" className="h-7 w-auto" />
-              <span className="font-bold text-lg">RegularFolk<span style={{color: 'var(--primary)'}}>Finance</span></span>
+            <Link href="/" className="flex items-center" aria-label="RegularFolkFinance Homepage">
+              <img src="/images/rff-logo.svg" alt="RegularFolkFinance" className="h-7 w-auto" />
             </Link>
 
             {/* Hamburger Menu Button */}

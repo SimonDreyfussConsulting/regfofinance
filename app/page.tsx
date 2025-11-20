@@ -1,9 +1,52 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
+import Script from 'next/script';
 
 export default function Home() {
+  const homepageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://regularfolkfinance.com/#website",
+        "url": "https://regularfolkfinance.com/",
+        "name": "RegularFolkFinance",
+        "description": "Real Data. Real People. Real Financial Guidance.",
+        "publisher": {"@id": "https://regularfolkfinance.com/#organization"},
+        "inLanguage": "en-US",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://regularfolkfinance.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://regularfolkfinance.com/#organization",
+        "name": "RegularFolkFinance",
+        "url": "https://regularfolkfinance.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://regularfolkfinance.com/images/rff-logo.svg",
+          "width": 200,
+          "height": 40
+        },
+        "sameAs": []
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <Script
+        id="schema-homepage"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
+        strategy="beforeInteractive"
+      />
       <Navigation />
 
       {/* Hero Section - Lifestyle Photography */}
