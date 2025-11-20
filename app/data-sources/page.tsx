@@ -4,6 +4,9 @@ import Navigation from '@/components/Navigation';
 export const metadata: Metadata = {
   title: 'Data Sources | RegularFolkFinance',
   description: 'Where we collect our data and how we verify it',
+  alternates: {
+    canonical: 'https://regularfolkfinance.com/data-sources',
+  },
   robots: {
     index: true,
     follow: true,

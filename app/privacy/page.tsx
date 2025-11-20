@@ -4,6 +4,9 @@ import Navigation from '@/components/Navigation';
 export const metadata: Metadata = {
   title: 'Privacy Policy | RegularFolkFinance',
   description: 'How RegularFolkFinance collects, uses, and protects your data',
+  alternates: {
+    canonical: 'https://regularfolkfinance.com/privacy',
+  },
   robots: {
     index: true,
     follow: true,

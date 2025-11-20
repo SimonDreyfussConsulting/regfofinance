@@ -1,6 +1,15 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Script from 'next/script';
+import { getContentYear } from "@/utils/getContentYear";
+import type { Metadata } from "next";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://regularfolkfinance.com',
+  },
+};
 
 export default function Home() {
   const homepageSchema = {
@@ -70,10 +79,13 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <img 
-                src="/images/jA6C50tKAiJ9.jpg" 
-                alt="People managing their finances" 
+              <Image
+                src="/images/jA6C50tKAiJ9.jpg"
+                alt="People managing their finances"
+                width={800}
+                height={600}
                 className="rounded-2xl shadow-2xl w-full"
+                priority
               />
             </div>
           </div>
@@ -92,12 +104,15 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Featured Article 1 */}
-            <Link href="/credit-cards/chase-sapphire" className="card group">
+            <Link href="/credit-cards" className="card group">
               <div className="relative h-48 overflow-hidden rounded-t-xl">
-                <img 
-                  src="/images/1dlhQc1vlU7p.png" 
-                  alt="Chase Sapphire Preferred" 
+                <Image
+                  src="/images/1dlhQc1vlU7p.png"
+                  alt="Chase Sapphire Preferred"
+                  width={400}
+                  height={250}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-[#3B82F6] text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -151,10 +166,13 @@ export default function Home() {
             {/* Featured Article 3 */}
             <Link href="/reverse-mortgages" className="card group">
               <div className="relative h-48 overflow-hidden rounded-t-xl">
-                <img 
-                  src="/images/5DlVZOWMKLMn.jpg" 
-                  alt="Reverse Mortgages" 
+                <Image
+                  src="/images/5DlVZOWMKLMn.jpg"
+                  alt="Reverse Mortgages"
+                  width={400}
+                  height={250}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-[#FB923C] text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -238,10 +256,13 @@ export default function Home() {
             {/* Article 1 */}
             <div className="flex gap-4 group cursor-pointer">
               <div className="w-32 h-32 flex-shrink-0 rounded-lg overflow-hidden">
-                <img 
-                  src="/images/tMQPsQqoNudD.png" 
-                  alt="Capital One Venture" 
+                <Image
+                  src="/images/tMQPsQqoNudD.png"
+                  alt="Capital One Venture"
+                  width={128}
+                  height={128}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
               </div>
               <div className="flex-1">
@@ -352,7 +373,7 @@ export default function Home() {
           
           <div className="border-t pt-8 text-center text-sm text-gray-600">
             <p className="mb-2">
-              © 2025 RegularFolkFinance. We're not financial advisors. All recommendations are based on aggregated user data and research.
+              © {getContentYear()} RegularFolkFinance. We're not financial advisors. All recommendations are based on aggregated user data and research.
             </p>
             <p>
               <strong>Affiliate Disclosure:</strong> We may earn a commission when you click on links to products. This helps keep our research free. 

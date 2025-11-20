@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Search } from "lucide-react";
+import Logo from "./Logo";
+import LogoIcon from "./LogoIcon";
 
 const navLinks = [
   { label: "Make Money", href: "/make-money" },
@@ -24,9 +26,7 @@ export default function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center" aria-label="RegularFolkFinance Homepage">
-              <img src="/images/rff-logo.svg" alt="RegularFolkFinance" className="h-8 w-auto" />
-            </Link>
+            <Logo />
 
             {/* Desktop Nav Links */}
             <div className="flex items-center gap-1">
@@ -52,9 +52,7 @@ export default function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-14">
             {/* Logo */}
-            <Link href="/" className="flex items-center" aria-label="RegularFolkFinance Homepage">
-              <img src="/images/rff-logo.svg" alt="RegularFolkFinance" className="h-7 w-auto" />
-            </Link>
+            <LogoIcon />
 
             {/* Hamburger Menu Button */}
             <button
