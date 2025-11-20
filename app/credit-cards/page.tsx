@@ -1,12 +1,10 @@
+'use client';
+
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Best Credit Cards - Real Reviews from 27,400+ Cardholders",
-  description: "Find the best credit cards based on 27,400+ real user reviews. Chase Sapphire Preferred, Amex Gold, and Capital One Venture compared by real people.",
-  keywords: "best credit cards, Chase Sapphire Preferred, Amex Gold Card, Capital One Venture, credit card reviews",
-};
+import { useSearchParams, useRouter } from "next/navigation";
+import { useState, useEffect, Suspense } from "react";
+import Image from "next/image";
 
 const creditCards = [
   {
@@ -16,7 +14,7 @@ const creditCards = [
     reviews: "10,847 real cardholders",
     bonus: "60,000 points",
     annualFee: "$95",
-    category: "Travel Rewards",
+    category: "Travel",
     whatPeopleLove: [
       "\"The travel insurance saved me $800 when my flight got canceled\" - Reddit user",
       "\"Transfer partners are amazing - I got a $2,000 flight for 50k points\" - r/churning",
@@ -38,7 +36,7 @@ const creditCards = [
     reviews: "8,932 cardholders",
     bonus: "60,000 points",
     annualFee: "$250",
-    category: "Dining & Groceries",
+    category: "Dining",
     whatPeopleLove: [
       "\"4x on restaurants is insane - I get $40-50 back every month\" - Amex cardholder",
       "\"The Uber credits basically pay for themselves\" - Common praise",
@@ -60,7 +58,7 @@ const creditCards = [
     reviews: "7,621 users",
     bonus: "75,000 miles",
     annualFee: "$95",
-    category: "Flat-Rate Travel",
+    category: "Travel",
     whatPeopleLove: [
       "\"So simple - 2x on everything, no categories to track\" - Happy user",
       "\"Transferred points to Turkish Airlines and got amazing value\" - r/awardtravel",
@@ -74,10 +72,197 @@ const creditCards = [
     theVerdict: "If you want dead-simple rewards and don't want to think about categories, this is your card. If you're a points optimizer, you might get better value elsewhere.",
     bestFor: "People who want simple, no-fuss travel rewards",
     affiliateLink: "#"
+  },
+  {
+    name: "Chase Freedom Unlimited®",
+    image: "/images/1dlhQc1vlU7p.png",
+    rating: "4.3/5",
+    reviews: "12,500 cardholders",
+    bonus: "20,000 points",
+    annualFee: "$0",
+    category: "Cash Back",
+    whatPeopleLove: [
+      "\"1.5% cash back on everything with no annual fee is solid\" - Happy user",
+      "\"The 5% on travel through Chase portal is a nice perk\" - r/CreditCards",
+      "\"Easy to use, no categories to track\" - Common praise"
+    ],
+    whatPeopleHate: [
+      "\"Not as rewarding as cards with rotating categories\" - Some users",
+      "\"The bonus is smaller than other cards\" - Valid point",
+      "\"Would be better with 2% flat rate\" - Frequent wish"
+    ],
+    theVerdict: "If you want simple cash back with no annual fee, this card delivers. But if you're willing to track categories, you might earn more elsewhere.",
+    bestFor: "People who want simple cash back with no annual fee",
+    affiliateLink: "#"
+  },
+  {
+    name: "Citi® Double Cash Card",
+    image: "/images/1dlhQc1vlU7p.png",
+    rating: "4.4/5",
+    reviews: "15,200 cardholders",
+    bonus: "N/A",
+    annualFee: "$0",
+    category: "Cash Back",
+    whatPeopleLove: [
+      "\"2% cash back on everything - simple and effective\" - Reddit user",
+      "\"No annual fee, no categories, no BS\" - r/personalfinance",
+      "\"Best flat-rate cash back card, period\" - Common consensus"
+    ],
+    whatPeopleHate: [
+      "\"No sign-up bonus is disappointing\" - Frequent complaint",
+      "\"Takes forever to get your cash back\" - Some frustration",
+      "\"Not as good for big spenders vs. travel cards\" - Valid criticism"
+    ],
+    theVerdict: "The king of simple cash back. If you don't want to think about categories or transfer partners, this is your card.",
+    bestFor: "People who want the best flat-rate cash back with no fee",
+    affiliateLink: "#"
+  },
+  {
+    name: "Capital One Savor Cash Rewards",
+    image: "/images/tMQPsQqoNudD.png",
+    rating: "4.0/5",
+    reviews: "6,400 cardholders",
+    bonus: "30,000 points",
+    annualFee: "$95",
+    category: "Dining",
+    whatPeopleLove: [
+      "\"4% on dining and entertainment is amazing\" - Happy cardholder",
+      "\"No foreign transaction fees for international dining\" - Traveler",
+      "\"3% on groceries adds up fast\" - Common praise"
+    ],
+    whatPeopleHate: [
+      "\"$95 fee is steep compared to other dining cards\" - Valid concern",
+      "\"Entertainment category is limited\" - Some disappointment",
+      "\"Amex Gold gives better value if you use the credits\" - Comparison"
+    ],
+    theVerdict: "Great for foodies who don't want to deal with Amex credits. But the annual fee makes it a tougher sell than the no-fee version.",
+    bestFor: "Dining enthusiasts who want simple rewards",
+    affiliateLink: "#"
+  },
+  {
+    name: "Discover it® Cash Back",
+    image: "/images/1dlhQc1vlU7p.png",
+    rating: "4.5/5",
+    reviews: "18,300 cardholders",
+    bonus: "Match 1st year",
+    annualFee: "$0",
+    category: "No Annual Fee",
+    whatPeopleLove: [
+      "\"Cashback match first year is basically a 10% return\" - Excited user",
+      "\"5% rotating categories are actually useful\" - r/churning",
+      "\"No annual fee and great customer service\" - Common praise"
+    ],
+    whatPeopleHate: [
+      "\"Not accepted everywhere like Visa/Mastercard\" - Frequent issue",
+      "\"Have to remember to activate categories each quarter\" - Minor annoyance",
+      "\"After first year, it's just okay\" - Some users"
+    ],
+    theVerdict: "The first year is incredible value. After that, it's still solid but less exciting. Great starter card.",
+    bestFor: "First-time cardholders or anyone wanting no-fee rewards",
+    affiliateLink: "#"
+  },
+  {
+    name: "Chase Freedom Flex℠",
+    image: "/images/1dlhQc1vlU7p.png",
+    rating: "4.4/5",
+    reviews: "9,800 cardholders",
+    bonus: "20,000 points",
+    annualFee: "$0",
+    category: "No Annual Fee",
+    whatPeopleLove: [
+      "\"5% rotating categories plus 3% on dining and drugstores\" - Happy user",
+      "\"No annual fee but works with Chase ecosystem\" - Strategic users",
+      "\"Travel protections on a no-fee card is rare\" - Common praise"
+    ],
+    whatPeopleHate: [
+      "\"Categories rotate and you have to activate them\" - Some find it annoying",
+      "\"Not as simple as flat-rate cards\" - Valid point",
+      "\"5% caps at $1,500 per quarter\" - Limitation"
+    ],
+    theVerdict: "Best no-fee card if you can keep up with rotating categories. Pairs perfectly with other Chase cards.",
+    bestFor: "Organized spenders who want to maximize no-fee rewards",
+    affiliateLink: "#"
+  },
+  {
+    name: "Chase Ink Business Preferred®",
+    image: "/images/1dlhQc1vlU7p.png",
+    rating: "4.3/5",
+    reviews: "7,200 business owners",
+    bonus: "100,000 points",
+    annualFee: "$95",
+    category: "Business",
+    whatPeopleLove: [
+      "\"3x on travel, shipping, advertising - perfect for my business\" - Small business owner",
+      "\"100k bonus is massive for a $95 fee\" - Happy applicant",
+      "\"Cell phone protection saved me $800\" - Real benefit"
+    ],
+    whatPeopleHate: [
+      "\"You need a business (even sole prop counts though)\" - Barrier to entry",
+      "\"3x categories cap at $150k annually\" - High spenders",
+      "\"No employee cards without fees\" - Some disappointment"
+    ],
+    theVerdict: "If you have any kind of business, this card is a no-brainer. The bonus alone pays for years of fees.",
+    bestFor: "Small business owners and freelancers",
+    affiliateLink: "#"
+  },
+  {
+    name: "American Express® Business Gold Card",
+    image: "/images/5DlVZOWMKLMn.jpg",
+    rating: "4.2/5",
+    reviews: "5,800 business owners",
+    bonus: "70,000 points",
+    annualFee: "$295",
+    category: "Business",
+    whatPeopleLove: [
+      "\"4x on top 2 categories is insane for business spend\" - Happy owner",
+      "\"Flexible categories adapt to my business\" - Strategic user",
+      "\"Transfer partners make points worth more\" - Maximizers"
+    ],
+    whatPeopleHate: [
+      "\"$295 is steep without any statement credits\" - Common complaint",
+      "\"Not accepted everywhere\" - Amex limitation",
+      "\"Have to track which categories you're using\" - Some complexity"
+    ],
+    theVerdict: "Best business rewards card if you have high spend and can maximize the 4x categories. Fee is high but rewards can justify it.",
+    bestFor: "Business owners with high spending in bonus categories",
+    affiliateLink: "#"
   }
 ];
 
-export default function CreditCards() {
+function CreditCardsContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  useEffect(() => {
+    const category = searchParams.get('category') || 'all';
+    setSelectedCategory(category);
+  }, [searchParams]);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    const params = new URLSearchParams(searchParams.toString());
+    if (category === 'all') {
+      params.delete('category');
+    } else {
+      params.set('category', category);
+    }
+    router.push(`/credit-cards${params.toString() ? `?${params.toString()}` : ''}`);
+  };
+
+  const filteredCards = selectedCategory === 'all'
+    ? creditCards
+    : creditCards.filter(card => card.category.toLowerCase() === selectedCategory.toLowerCase());
+
+  const categories = [
+    { label: 'All Cards', value: 'all' },
+    { label: 'Travel', value: 'travel' },
+    { label: 'Cash Back', value: 'cash back' },
+    { label: 'Dining', value: 'dining' },
+    { label: 'No Annual Fee', value: 'no annual fee' },
+    { label: 'Business', value: 'business' },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -105,12 +290,19 @@ export default function CreditCards() {
       <section className="py-6 border-b bg-white sticky top-14 md:top-16 z-40 shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-2">
-            <button className="px-4 py-2 text-sm bg-[#3B82F6] text-white rounded-md">All Cards</button>
-            <button className="px-4 py-2 text-sm border rounded-md hover:bg-gray-50">Travel</button>
-            <button className="px-4 py-2 text-sm border rounded-md hover:bg-gray-50">Cash Back</button>
-            <button className="px-4 py-2 text-sm border rounded-md hover:bg-gray-50">Dining</button>
-            <button className="px-4 py-2 text-sm border rounded-md hover:bg-gray-50">No Annual Fee</button>
-            <button className="px-4 py-2 text-sm border rounded-md hover:bg-gray-50">Business</button>
+            {categories.map(cat => (
+              <button
+                key={cat.value}
+                onClick={() => handleCategoryChange(cat.value)}
+                className={`px-4 py-2 text-sm rounded-md transition-colors ${
+                  selectedCategory === cat.value
+                    ? 'bg-[#3B82F6] text-white'
+                    : 'border hover:bg-gray-50'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -119,15 +311,18 @@ export default function CreditCards() {
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto space-y-12">
-            {creditCards.map((card, index) => (
+            {filteredCards.map((card, index) => (
               <div key={card.name} className="card border-2">
                 <div className="grid md:grid-cols-[280px_1fr] gap-6">
                   {/* Card Image */}
                   <div className="bg-gradient-to-br from-[#3B82F6]/5 to-[#06B6D4]/5 p-8 flex items-center justify-center">
-                    <img 
-                      src={card.image} 
-                      alt={card.name} 
+                    <Image
+                      src={card.image}
+                      alt={card.name}
+                      width={250}
+                      height={157}
                       className="w-full max-w-[250px] rounded-lg shadow-lg"
+                      loading="lazy"
                     />
                   </div>
 
@@ -194,7 +389,7 @@ export default function CreditCards() {
                       <a href={card.affiliateLink} target="_blank" rel="noopener noreferrer" className="flex-1 btn btn-primary text-center">
                         Apply Now →
                       </a>
-                      <Link href={`/credit-cards/${card.name.toLowerCase().replace(/[®\s]+/g, '-')}`} className="btn btn-secondary">
+                      <Link href="/credit-cards" className="btn btn-secondary">
                         Full Review
                       </Link>
                     </div>
@@ -240,5 +435,13 @@ export default function CreditCards() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function CreditCards() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <CreditCardsContent />
+    </Suspense>
   );
 }

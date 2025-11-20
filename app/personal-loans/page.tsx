@@ -1,10 +1,14 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
+import { getContentYear } from "@/utils/getContentYear";
 
 export const metadata: Metadata = {
-  title: "Best Personal Loans 2025 | RegularFolkFinance",
+  title: `Best Personal Loans ${getContentYear()} | RegularFolkFinance`,
   description: "Compare personal loans based on 25,000+ real borrower reviews. Find lenders with fair rates and no hidden fees.",
+  alternates: {
+    canonical: 'https://regularfolkfinance.com/personal-loans',
+  },
   robots: {
     index: true,
     follow: true,
@@ -196,11 +200,14 @@ export default function PersonalLoans() {
 
                     {/* CTAs */}
                     <div className="flex gap-3">
-                      <button className="flex-1 bg-[#06B6D4] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#06B6D4]/90 transition-colors">
-                        Check Rates →
-                      </button>
                       <Link
-                        href={index === 0 ? '/personal-loans/sofi-review' : `/personal-loans/${lender.name.toLowerCase().replace(/\s+/g, '-')}`}
+                        href={index === 0 ? '/personal-loans/sofi-review' : index === 1 ? '/personal-loans/marcus-review' : '/personal-loans/lightstream-review'}
+                        className="flex-1 bg-[#06B6D4] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#06B6D4]/90 transition-colors text-center"
+                      >
+                        Check Rates →
+                      </Link>
+                      <Link
+                        href={index === 0 ? '/personal-loans/sofi-review' : index === 1 ? '/personal-loans/marcus-review' : '/personal-loans/lightstream-review'}
                         className="bg-white border-2 border-[#6B7280]/30 text-[#1F2937] font-semibold py-3 px-6 rounded-lg hover:border-[#6B7280] transition-colors"
                       >
                         Full Review
