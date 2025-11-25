@@ -48,7 +48,7 @@ export default function ChaseSapphirePreferredPost() {
               <span>•</span>
               <span>8 min read</span>
               <span>•</span>
-              <span>By Simon Dreyfuss</span>
+              <span>By RegularFolkFinance Team</span>
             </div>
 
             <img
@@ -198,13 +198,13 @@ export default function ChaseSapphirePreferredPost() {
               <div className="mt-12 pt-8 border-t border-[#6B7280]/20">
                 <div className="flex items-start gap-4">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
-                    SD
+                    RF
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-[#1F2937]">Simon Dreyfuss</h3>
-                    <p className="text-sm text-[#6B7280] mb-2">Founder, RegularFolkFinance</p>
+                    <h3 className="font-bold text-lg text-[#1F2937]">RegularFolkFinance Team</h3>
+                    <p className="text-sm text-[#6B7280] mb-2">Editorial Team</p>
                     <p className="text-sm text-[#1F2937]" style={{ lineHeight: '1.7' }}>
-                      I'm not a financial advisor—I'm just someone who spent way too much time reading what real people say about credit cards. This analysis is based on 10,000+ Reddit comments collected over the past year.
+                      We're not financial advisors—we're a team that spent way too much time reading what real people say about credit cards. This analysis is based on 10,000+ Reddit comments collected over the past year.
                     </p>
                   </div>
                 </div>

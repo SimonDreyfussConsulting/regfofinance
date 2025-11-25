@@ -98,7 +98,7 @@ Each page includes:
 
 ## Support
 
-For questions or issues, contact simon@regularfolkfinance.com
+For questions or issues, contact team@regularfolkfinance.com
 
 ## License
 
