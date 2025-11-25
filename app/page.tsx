@@ -5,49 +5,258 @@ import { getContentYear } from "@/utils/getContentYear";
 import type { Metadata } from "next";
 import Image from "next/image";
 
+// ===========================================
+// METADATA - Full SEO optimization
+// ===========================================
 export const metadata: Metadata = {
+  title: 'RegularFolkFinance - Real Data. Real People. Real Financial Guidance.',
+  description: 'We analyzed 100,000+ real user experiences from Reddit and review sites to help you make smarter money decisions. Compare credit cards, personal loans, mortgages based on what real people say.',
   alternates: {
     canonical: 'https://regularfolkfinance.com',
   },
+  openGraph: {
+    title: 'RegularFolkFinance - Real Data. Real People. Real Financial Guidance.',
+    description: 'We analyzed 100,000+ real user experiences to help you make smarter money decisions.',
+    url: 'https://regularfolkfinance.com',
+    siteName: 'RegularFolkFinance',
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: 'https://regularfolkfinance.com/images/og-homepage.png',
+        width: 1200,
+        height: 630,
+        alt: 'RegularFolkFinance - Community-Powered Financial Guidance',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RegularFolkFinance - Real Data. Real People. Real Financial Guidance.',
+    description: 'We analyzed 100,000+ real user experiences to help you make smarter money decisions.',
+    images: ['https://regularfolkfinance.com/images/og-homepage.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+  },
+};
+
+// ===========================================
+// SCHEMA - Optimized for LLMO 2025-2026
+// ===========================================
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    // 1. WEBSITE - Core site identity
+    {
+      "@type": "WebSite",
+      "@id": "https://regularfolkfinance.com/#website",
+      "url": "https://regularfolkfinance.com/",
+      "name": "RegularFolkFinance",
+      "description": "Community-powered financial guidance based on 100,000+ real user experiences from Reddit and review sites.",
+      "publisher": { "@id": "https://regularfolkfinance.com/#organization" },
+      "inLanguage": "en-US",
+      // Remove SearchAction if you don't have /search page yet
+      // "potentialAction": {
+      //   "@type": "SearchAction",
+      //   "target": {
+      //     "@type": "EntryPoint", 
+      //     "urlTemplate": "https://regularfolkfinance.com/search?q={search_term_string}"
+      //   },
+      //   "query-input": "required name=search_term_string"
+      // }
+    },
+
+    // 2. ORGANIZATION - Who you are (enhanced)
+    {
+      "@type": "Organization",
+      "@id": "https://regularfolkfinance.com/#organization",
+      "name": "RegularFolkFinance",
+      "url": "https://regularfolkfinance.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://regularfolkfinance.com/#logo",
+        "url": "https://regularfolkfinance.com/images/rff-logo.svg",
+        "contentUrl": "https://regularfolkfinance.com/images/rff-logo.svg",
+        "width": 200,
+        "height": 40,
+        "caption": "RegularFolkFinance Logo"
+      },
+      "image": { "@id": "https://regularfolkfinance.com/#logo" },
+      "description": "We analyze real user experiences from Reddit and review sites to provide community-powered financial guidance.",
+      "slogan": "Real Data. Real People. Real Financial Guidance.",
+      "foundingDate": "2025",
+      "knowsAbout": [
+        "Credit Cards",
+        "Personal Loans", 
+        "Mortgages",
+        "Reverse Mortgages",
+        "Personal Finance",
+        "Consumer Financial Products",
+        "Reddit Financial Communities",
+        "User Experience Analysis"
+      ],
+      "sameAs": [
+        "https://twitter.com/regularfolkfin",
+        "https://reddit.com/r/regularfolkfinance",
+        "https://linkedin.com/company/regularfolkfinance"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "url": "https://regularfolkfinance.com/contact"
+      }
+    },
+
+    // 3. WEBPAGE - This specific page (NEW - Critical for LLMO)
+    {
+      "@type": "WebPage",
+      "@id": "https://regularfolkfinance.com/#webpage",
+      "url": "https://regularfolkfinance.com/",
+      "name": "RegularFolkFinance - Real Data. Real People. Real Financial Guidance.",
+      "description": "Compare credit cards, personal loans, and mortgages based on 100,000+ real user experiences from Reddit and review sites.",
+      "isPartOf": { "@id": "https://regularfolkfinance.com/#website" },
+      "about": { "@id": "https://regularfolkfinance.com/#organization" },
+      "inLanguage": "en-US",
+      "datePublished": "2025-11-01",
+      "dateModified": new Date().toISOString().split('T')[0],
+      "breadcrumb": { "@id": "https://regularfolkfinance.com/#breadcrumb" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://regularfolkfinance.com/images/og-homepage.png"
+      },
+      // SPEAKABLE - For voice assistants & LLMs (NEW for LLMO)
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".hero-description", "h2"]
+      },
+      "mainEntity": { "@id": "https://regularfolkfinance.com/#itemlist" }
+    },
+
+    // 4. BREADCRUMB - Navigation context
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://regularfolkfinance.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://regularfolkfinance.com/"
+        }
+      ]
+    },
+
+    // 5. ITEMLIST - Featured content (helps LLMs understand your offerings)
+    {
+      "@type": "ItemList",
+      "@id": "https://regularfolkfinance.com/#itemlist",
+      "name": "Financial Product Categories",
+      "description": "Compare financial products based on real user experiences",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Best Credit Cards",
+          "description": "Compare rewards, cash back, and travel cards based on 25,000+ user reviews",
+          "url": "https://regularfolkfinance.com/credit-cards"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Personal Loans",
+          "description": "Find lenders that real borrowers actually recommend",
+          "url": "https://regularfolkfinance.com/personal-loans"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Financial Calculators",
+          "description": "Figure out payments, interest, and total costs before you apply",
+          "url": "https://regularfolkfinance.com/calculators"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Money Guides",
+          "description": "Learn from what worked and didn't for thousands of people",
+          "url": "https://regularfolkfinance.com/guides"
+        }
+      ]
+    },
+
+    // 6. COLLECTION OF ARTICLES - Trending content
+    {
+      "@type": "CollectionPage",
+      "@id": "https://regularfolkfinance.com/#trending",
+      "name": "Trending Financial Research",
+      "description": "Latest community-driven financial product analysis",
+      "isPartOf": { "@id": "https://regularfolkfinance.com/#webpage" },
+      "hasPart": [
+        {
+          "@type": "Article",
+          "headline": "Chase Sapphire Preferred: What 10,000 Reddit Users Really Think",
+          "url": "https://regularfolkfinance.com/credit-cards",
+          "description": "Analysis of every Reddit mention in 2024 - the good, the bad, and the unexpected.",
+          "author": { "@id": "https://regularfolkfinance.com/#organization" },
+          "publisher": { "@id": "https://regularfolkfinance.com/#organization" },
+          "about": {
+            "@type": "Product",
+            "name": "Chase Sapphire Preferred",
+            "category": "Credit Card"
+          }
+        },
+        {
+          "@type": "Article", 
+          "headline": "What 127+ Borrowers Really Think About SoFi Personal Loans",
+          "url": "https://regularfolkfinance.com/personal-loans/sofi-review",
+          "description": "Real experiences from Reddit and MyFICO about approval rates, APRs, and funding times.",
+          "author": { "@id": "https://regularfolkfinance.com/#organization" },
+          "publisher": { "@id": "https://regularfolkfinance.com/#organization" },
+          "about": {
+            "@type": "FinancialProduct",
+            "name": "SoFi Personal Loan",
+            "category": "Personal Loan"
+          }
+        },
+        {
+          "@type": "Article",
+          "headline": "30,000 Seniors Told Us About Reverse Mortgages",
+          "url": "https://regularfolkfinance.com/reverse-mortgages",
+          "description": "Real stories about reverse mortgages - the good, the bad, and the alternatives.",
+          "author": { "@id": "https://regularfolkfinance.com/#organization" },
+          "publisher": { "@id": "https://regularfolkfinance.com/#organization" },
+          "about": {
+            "@type": "FinancialProduct",
+            "name": "Reverse Mortgage",
+            "category": "Mortgage"
+          }
+        }
+      ]
+    },
+
+    // 7. SITE NAVIGATION - Helps LLMs understand site structure (NEW for LLMO)
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://regularfolkfinance.com/#navigation",
+      "name": "Main Navigation",
+      "hasPart": [
+        { "@type": "WebPage", "name": "Credit Cards", "url": "https://regularfolkfinance.com/credit-cards" },
+        { "@type": "WebPage", "name": "Personal Loans", "url": "https://regularfolkfinance.com/personal-loans" },
+        { "@type": "WebPage", "name": "Banking", "url": "https://regularfolkfinance.com/banking" },
+        { "@type": "WebPage", "name": "Mortgages", "url": "https://regularfolkfinance.com/mortgages" },
+        { "@type": "WebPage", "name": "Calculators", "url": "https://regularfolkfinance.com/calculators" },
+        { "@type": "WebPage", "name": "Guides", "url": "https://regularfolkfinance.com/guides" }
+      ]
+    }
+  ]
 };
 
 export default function Home() {
-  const homepageSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://regularfolkfinance.com/#website",
-        "url": "https://regularfolkfinance.com/",
-        "name": "RegularFolkFinance",
-        "description": "Real Data. Real People. Real Financial Guidance.",
-        "publisher": {"@id": "https://regularfolkfinance.com/#organization"},
-        "inLanguage": "en-US",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://regularfolkfinance.com/search?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://regularfolkfinance.com/#organization",
-        "name": "RegularFolkFinance",
-        "url": "https://regularfolkfinance.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://regularfolkfinance.com/images/rff-logo.svg",
-          "width": 200,
-          "height": 40
-        },
-        "sameAs": []
-      }
-    ]
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <Script
@@ -66,7 +275,8 @@ export default function Home() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Real People. Real Money Moves. Real Results.
               </h1>
-              <p className="text-xl text-gray-700 mb-8">
+              {/* Added class for speakable schema targeting */}
+              <p className="hero-description text-xl text-gray-700 mb-8">
                 We're not financial advisors—we're your neighbors who spent hundreds of hours reading what real people say about credit cards, loans, and money decisions. Here's what we found.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -92,6 +302,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ... REST OF YOUR PAGE STAYS THE SAME ... */}
+      
       {/* Trending Now - Magazine Style */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
