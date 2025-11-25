@@ -103,10 +103,11 @@ export default function Navigation() {
                     hover:border-[#3B82F6]
                   "
                   style={{
-                    fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                    f fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                     fontSize: '14px',
                     fontWeight: 700,
                     letterSpacing: '0.5px',
+                    color: '#374151',
                   }}
                 >
                   {item.label}
