@@ -233,6 +233,9 @@ function CreditCardsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  
+  // Dynamic year - updates automatically
+  const currentYear = new Date().getFullYear();
 
   useEffect(() => {
     const category = searchParams.get('category') || 'all';
@@ -271,12 +274,15 @@ function CreditCardsContent() {
       <section className="bg-gradient-to-br from-[#3B82F6]/10 to-[#06B6D4]/10 py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl">
-            <span className="inline-block mb-4 px-3 py-1 bg-[#3B82F6] text-white rounded-full text-sm font-semibold">CREDIT CARDS</span>
+            <span className="inline-block mb-4 px-3 py-1 bg-[#3B82F6] text-white rounded-full text-sm font-semibold">
+              CREDIT CARDS
+            </span>
+            {/* DYNAMIC H1 - Auto-updates year */}
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              The Best Credit Cards, According to People Who Actually Use Them
+              The Best Credit Cards of {currentYear}, According to People Who Actually Use Them
             </h1>
             <p className="text-xl text-gray-700 mb-6">
-              We spent weeks reading what 27,400+ real cardholders said on Reddit, Credit Karma, and review sites. 
+              We spent weeks reading what 27,400+ real cardholders said on Reddit, Credit Karma, and review sites in {currentYear}. 
               Here's what they wish they knew before applying.
             </p>
             <p className="text-sm text-gray-600 italic">
@@ -312,7 +318,7 @@ function CreditCardsContent() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto space-y-12">
             {filteredCards.map((card, index) => (
-              <div key={card.name} className="card border-2">
+              <article key={card.name} className="card border-2">
                 <div className="grid md:grid-cols-[280px_1fr] gap-6">
                   {/* Card Image */}
                   <div className="bg-gradient-to-br from-[#3B82F6]/5 to-[#06B6D4]/5 p-8 flex items-center justify-center">
@@ -373,7 +379,7 @@ function CreditCardsContent() {
                     </div>
 
                     {/* The Verdict */}
-                    <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                    <div className="verdict bg-gray-50 p-4 rounded-lg mb-4">
                       <h3 className="font-bold mb-2">📝 The Verdict</h3>
                       <p className="text-sm text-gray-700">{card.theVerdict}</p>
                     </div>
@@ -399,7 +405,7 @@ function CreditCardsContent() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
