@@ -105,10 +105,3 @@ export default function Navigation() {
     </header>
   );
 }
-```
-
-Save, then run:
-```
-git add .
-git commit -m "Fix Navigation syntax error and use brand blue color"
-git push origin main
