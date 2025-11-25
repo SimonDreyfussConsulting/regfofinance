@@ -93,14 +93,14 @@ export default function Navigation() {
                     font-bold
                     uppercase
                     tracking-wide
-                    text-gray-700
-                    hover:text-blue-500
+                    text-[#374151]
+                    hover:text-[#3B82F6]
                     transition-colors
                     duration-200
                     py-3
                     border-b-2
                     border-transparent
-                    hover:border-blue-500
+                    hover:border-[#3B82F6]
                   "
                   style={{
                     fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
@@ -137,8 +137,8 @@ export default function Navigation() {
                       py-3
                       text-base
                       font-semibold
-                      text-gray-700
-                      hover:text-blue-500
+                      text-[#374151]
+                      hover:text-[#3B82F6]
                       hover:bg-gray-50
                       rounded-lg
                       transition-colors
