@@ -45,7 +45,7 @@ export default function TableOfContents({
   }, [items]);
 
   return (
-    <div className="sticky top-24 w-64">
+    <div className="sticky top-24 z-30 w-64">
       <h3 className="font-bold text-lg mb-4 text-[#1F2937]">Table of Contents</h3>
       <nav>
         {items.map((item) => (

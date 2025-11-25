@@ -94,7 +94,7 @@ export default function AvantReview() {
             <TableOfContents items={tocItems} />
 
             {/* Quick Stats */}
-            <div className="mt-8 bg-[#F3F4F6] border border-[#6B7280]/20 rounded-lg p-6">
+            <div className="mt-8 sticky top-24 z-20 bg-[#F3F4F6] border border-[#6B7280]/20 rounded-lg p-6">
               <h3 className="font-bold text-lg mb-4 text-[#1F2937]">Quick Stats</h3>
               <div className="space-y-3 text-sm">
                 <div>

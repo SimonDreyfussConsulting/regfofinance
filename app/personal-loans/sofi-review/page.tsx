@@ -229,7 +229,7 @@ export default function SoFiPersonalLoansReview() {
             <TableOfContents items={tocItems} />
 
             {/* Quick CTA */}
-            <div className="mt-8 bg-[#F3F4F6] border border-[#6B7280]/20 rounded-lg p-6">
+            <div className="mt-8 sticky top-24 z-20 bg-[#F3F4F6] border border-[#6B7280]/20 rounded-lg p-6">
               <h3 className="font-bold text-lg mb-2 text-[#1F2937]">
                 Compare Personal Loans
               </h3>
