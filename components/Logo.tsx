@@ -18,7 +18,7 @@ export default function Logo({ size = 'large', className = '' }: LogoProps) {
       aria-label="RegularFolkFinance - Home"
     >
       <svg
-        viewBox="0 0 320 55"
+        viewBox="0 0 320 60"
         className={`${heightClass} w-auto`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -26,14 +26,14 @@ export default function Logo({ size = 'large', className = '' }: LogoProps) {
         aria-label="RegularFolkFinance Logo"
       >
         {/* Three overlapping circles - Community Guide Venn diagram */}
-        <circle cx="24" cy="30" r="18" fill="#3B82F6" fillOpacity={0.75} />
-        <circle cx="42" cy="30" r="18" fill="#06B6D4" fillOpacity={0.75} />
-        <circle cx="33" cy="14" r="18" fill="#3B82F6" fillOpacity={0.75} />
+        <circle cx="24" cy="36" r="18" fill="#3B82F6" fillOpacity={0.75} />
+        <circle cx="42" cy="36" r="18" fill="#06B6D4" fillOpacity={0.75} />
+        <circle cx="33" cy="20" r="18" fill="#3B82F6" fillOpacity={0.75} />
 
         {/* Wordmark: RegularFolk (regular) + Finance (bold) */}
         <text
           x="70"
-          y="36"
+          y="42"
           fontFamily="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif"
           fontSize="22"
           fill="#374151"
