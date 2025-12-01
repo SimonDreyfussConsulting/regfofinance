@@ -12,6 +12,7 @@ const navItems = [
   { label: 'Retirement', href: '/retirement' },
   { label: 'Debt', href: '/debt' },
   { label: 'Reviews', href: '/guides' },
+  { label: 'Articles', href: '/articles' },
 ];
 
 export default function Navigation() {
