@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '', changeFrequency: 'daily' as const, priority: 1 },
     { url: '/credit-cards', changeFrequency: 'weekly' as const, priority: 0.9 },
     { url: '/personal-loans', changeFrequency: 'weekly' as const, priority: 0.9 },
+    { url: '/articles', changeFrequency: 'weekly' as const, priority: 0.8 },
     { url: '/reverse-mortgages', changeFrequency: 'weekly' as const, priority: 0.8 },
     { url: '/personal-loans/sofi-review', changeFrequency: 'weekly' as const, priority: 0.8 },
     { url: '/personal-loans/marcus-review', changeFrequency: 'weekly' as const, priority: 0.8 },
