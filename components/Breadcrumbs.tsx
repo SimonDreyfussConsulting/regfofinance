@@ -54,20 +54,20 @@ export default function Breadcrumbs({ customLabels = {} }: BreadcrumbsProps) {
   }
 
   return (
-    <nav aria-label="Breadcrumb" className="container mx-auto px-4 py-3 text-sm text-[#6B7280]">
-      <ol className="flex flex-wrap items-center">
+    <nav aria-label="Breadcrumb" className="container mx-auto px-4 py-4">
+      <ol className="flex flex-wrap items-center text-sm font-medium" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
         <li>
-          <Link href="/" className="hover:text-[#06B6D4] transition-colors">
+          <Link href="/" className="text-[#3B82F6] hover:text-[#06B6D4] transition-colors">
             Home
           </Link>
         </li>
         {breadcrumbs.map((crumb) => (
           <li key={crumb.path} className="flex items-center">
-            <span className="mx-2 text-[#9CA3AF]">&gt;&gt;</span>
+            <span className="mx-2 text-[#6B7280]">&gt;&gt;</span>
             {crumb.isLast ? (
-              <span className="text-[#1F2937] font-medium">{crumb.label}</span>
+              <span className="text-[#1F2937]">{crumb.label}</span>
             ) : (
-              <Link href={crumb.path} className="hover:text-[#06B6D4] transition-colors">
+              <Link href={crumb.path} className="text-[#3B82F6] hover:text-[#06B6D4] transition-colors">
                 {crumb.label}
               </Link>
             )}

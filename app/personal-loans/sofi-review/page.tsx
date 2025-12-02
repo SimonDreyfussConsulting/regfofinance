@@ -4,6 +4,7 @@ import TableOfContents from '@/components/TableOfContents';
 import UserQuote from '@/components/UserQuote';
 import ArticleByline from '@/components/ArticleByLine';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 // Metadata for SEO
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
     ],
     publishedTime: "2025-11-19T00:00:00Z",
     modifiedTime: "2025-11-19T00:00:00Z",
+
   },
   twitter: {
     card: "summary_large_image",
@@ -209,16 +211,22 @@ export default function SoFiPersonalLoansReview() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#06B6D4]/10 to-[#3B82F6]/10 py-12 md:py-16">
+      <section className="bg-gradient-to-br from-[#06B6D4]/10 to-[#3B82F6]/10 pt-4 pb-12 md:pb-16">
+        <Breadcrumbs />
         <div className="container mx-auto px-4">
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#06B6D4] text-white rounded-full text-sm font-semibold">PERSONAL LOANS</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
               What 127+ Borrowers Really Think About SoFi Personal Loans (2025 Data)
             </h1>
-            <p className="text-sm text-[#6B7280] italic">
+            <p className="text-sm text-[#6B7280] italic mb-4">
               (We analyzed real experiences from Reddit and MyFICO Forums so you don&apos;t have to.)
             </p>
+            <ArticleByline 
+              wordCount={2800} 
+              publishDate="Nov 19, 2025" 
+              updateDate="Dec 2, 2025" 
+            />
           </div>
         </div>
       </section>
