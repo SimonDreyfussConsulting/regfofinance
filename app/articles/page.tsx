@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import {
   ArticleCategory,
@@ -15,21 +15,6 @@ import {
 
 export default function ArticlesPage() {
   const [activeCategory, setActiveCategory] = useState<ArticleCategory | undefined>();
-  const [navHeight, setNavHeight] = useState(0);
-  const navRef = useRef<HTMLDivElement>(null);
-
-  // Measure navigation height on mount and resize
-  useEffect(() => {
-    const updateNavHeight = () => {
-      if (navRef.current) {
-        setNavHeight(navRef.current.offsetHeight);
-      }
-    };
-
-    updateNavHeight();
-    window.addEventListener('resize', updateNavHeight);
-    return () => window.removeEventListener('resize', updateNavHeight);
-  }, []);
 
   const featuredArticle = getFeaturedArticle();
   const filteredArticles = getArticlesByCategory(activeCategory);
@@ -41,9 +26,7 @@ export default function ArticlesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div ref={navRef}>
-        <Navigation />
-      </div>
+      <Navigation />
       
       <main>
         {/* Header Section */}
@@ -59,14 +42,11 @@ export default function ArticlesPage() {
           </div>
         </section>
 
-        {/* Sticky Category Filter - Responsive */}
-        <div 
-          className="sticky z-40 bg-white border-b border-gray-200 shadow-sm"
-          style={{ top: navHeight }}
-        >
+        {/* Category Filter - NOT sticky, just centered */}
+        <div className="bg-white border-b border-gray-200">
           <div className="container mx-auto px-4">
             <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
-              <div className="flex justify-start sm:justify-center min-w-max sm:min-w-0 py-1">
+              <div className="flex justify-start sm:justify-center min-w-max sm:min-w-0 py-3">
                 <CategoryFilter
                   activeCategory={activeCategory}
                   onCategoryChange={setActiveCategory}
