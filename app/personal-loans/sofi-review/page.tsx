@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import TableOfContents from '@/components/TableOfContents';
 import UserQuote from '@/components/UserQuote';
+import ArticleByline from '@/components/ArticleByLine';
 import Link from 'next/link';
 
 // Metadata for SEO

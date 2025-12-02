@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import React from "react";
 import "./globals.css";
 import GoogleTagManager from '@/app/components/GoogleTagManager';
 import GoogleAnalytics from '@/app/components/GoogleAnalytics';
 import GTMNoscript from '@/app/components/GTMNoscript';
 import PageViewTracker from '@/app/components/PageViewTracker';
 import WebVitalsReporter from '@/app/components/WebVitalsReporter';
+import AutoLayout from '@/components/AutoLayout';
 
 export const metadata: Metadata = {
   title: "RegularFolkFinance - Real Data. Real People. Real Financial Guidance.",
@@ -15,11 +17,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <head>
@@ -33,7 +35,9 @@ export default function RootLayout({
         <GTMNoscript />
         <PageViewTracker />
         <WebVitalsReporter />
-        {children}
+        <AutoLayout>
+          {children}
+        </AutoLayout>
       </body>
     </html>
   );
