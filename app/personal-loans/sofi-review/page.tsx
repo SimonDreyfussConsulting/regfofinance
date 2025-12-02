@@ -216,7 +216,7 @@ export default function SoFiPersonalLoansReview() {
               What 127+ Borrowers Really Think About SoFi Personal Loans (2025 Data)
             </h1>
             <p className="text-sm text-[#6B7280] italic">
-              (We analyzed real experiences from Reddit and MyFICO Forums so you don't have to.)
+              (We analyzed real experiences from Reddit and MyFICO Forums so you don&apos;t have to.)
             </p>
           </div>
         </div>
@@ -224,24 +224,26 @@ export default function SoFiPersonalLoansReview() {
 
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-12">
-          {/* Sidebar */}
+          {/* Sidebar - Single sticky container for both TOC and CTA */}
           <aside className="hidden lg:block">
-            <TableOfContents items={tocItems} />
+            <div className="sticky top-24">
+              <TableOfContents items={tocItems} />
 
-            {/* Quick CTA */}
-            <div className="mt-8 sticky top-24 z-20 bg-[#F3F4F6] border border-[#6B7280]/20 rounded-lg p-6">
-              <h3 className="font-bold text-lg mb-2 text-[#1F2937]">
-                Compare Personal Loans
-              </h3>
-              <p className="text-sm text-[#6B7280] mb-4">
-                Check your rate with multiple lenders
-              </p>
-              <button className="w-full bg-[#06B6D4] text-white font-semibold py-3 rounded-lg hover:bg-[#06B6D4]/90 transition-colors">
-                Compare Rates
-              </button>
-              <p className="text-xs text-[#6B7280] mt-3 text-center">
-                Soft credit check only
-              </p>
+              {/* Quick CTA */}
+              <div className="mt-8 bg-[#F3F4F6] border border-[#6B7280]/20 rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2 text-[#1F2937]">
+                  Compare Personal Loans
+                </h3>
+                <p className="text-sm text-[#6B7280] mb-4">
+                  Check your rate with multiple lenders
+                </p>
+                <button className="w-full bg-[#06B6D4] text-white font-semibold py-3 rounded-lg hover:bg-[#06B6D4]/90 transition-colors">
+                  Compare Rates
+                </button>
+                <p className="text-xs text-[#6B7280] mt-3 text-center">
+                  Soft credit check only
+                </p>
+              </div>
             </div>
           </aside>
 
@@ -256,7 +258,7 @@ export default function SoFiPersonalLoansReview() {
               <div className="bg-[#EFF6FF] border-l-4 border-[#3B82F6] p-6 mb-8 rounded-r">
                 <p className="text-lg font-semibold text-[#1E40AF] mb-2">Quick Answer:</p>
                 <p className="text-[#1F2937] leading-relaxed" style={{ lineHeight: '1.7' }}>
-                  SoFi is a great choice for borrowers with good-to-excellent credit who need a large loan with fast funding, but their rates aren't always the most competitive. Our analysis reveals that while many users are happy, a significant number of highly qualified applicants get denied, and it pays to shop around.
+                  SoFi is a great choice for borrowers with good-to-excellent credit who need a large loan with fast funding, but their rates aren&apos;t always the most competitive. Our analysis reveals that while many users are happy, a significant number of highly qualified applicants get denied, and it pays to shop around.
                 </p>
               </div>
 
@@ -324,14 +326,14 @@ export default function SoFiPersonalLoansReview() {
                   Even with a high income, a large amount of existing debt, particularly student loans, was a common reason for denial. One user with a $200,000 income and an 815 credit score was denied due to $220,000 in student loan debt.
                 </p>
 
-                <p className="font-semibold text-[#C2410C] mb-2">"Algorithm" Denials:</p>
+                <p className="font-semibold text-[#C2410C] mb-2">&quot;Algorithm&quot; Denials:</p>
                 <p className="text-[#1F2937] mb-4" style={{ lineHeight: '1.7' }}>
-                  Several users reported being denied with no clear explanation, simply citing the "algorithm." This was a major point of frustration for well-qualified applicants.
+                  Several users reported being denied with no clear explanation, simply citing the &quot;algorithm.&quot; This was a major point of frustration for well-qualified applicants.
                 </p>
 
                 <p className="font-semibold text-[#C2410C] mb-2">Short Credit History:</p>
                 <p className="text-[#1F2937]" style={{ lineHeight: '1.7' }}>
-                  A high credit score isn't always enough. SoFi appears to value a long and established credit history.
+                  A high credit score isn&apos;t always enough. SoFi appears to value a long and established credit history.
                 </p>
               </div>
 
@@ -360,7 +362,7 @@ export default function SoFiPersonalLoansReview() {
               </h2>
 
               <p className="text-[17px] text-[#1F2937] leading-relaxed mb-4" style={{ lineHeight: '1.7' }}>
-                SoFi advertises competitive rates, but our analysis reveals a wide range of APRs offered to borrowers. While some users secured excellent rates, many found that SoFi's offers were not the most competitive on the market.
+                SoFi advertises competitive rates, but our analysis reveals a wide range of APRs offered to borrowers. While some users secured excellent rates, many found that SoFi&apos;s offers were not the most competitive on the market.
               </p>
 
               {/* APR Comparison Table */}
@@ -417,7 +419,7 @@ export default function SoFiPersonalLoansReview() {
               </h2>
 
               <p className="text-[17px] text-[#1F2937] leading-relaxed mb-4" style={{ lineHeight: '1.7' }}>
-                The quality of SoFi's customer service appears to be highly dependent on the product you're using. Our analysis revealed a stark contrast between the experiences of banking customers and lending customers.
+                The quality of SoFi&apos;s customer service appears to be highly dependent on the product you&apos;re using. Our analysis revealed a stark contrast between the experiences of banking customers and lending customers.
               </p>
 
               <h2 id="competitor-comparison" className="text-3xl font-bold mt-12 mb-6 text-[#1F2937]">
@@ -514,7 +516,7 @@ export default function SoFiPersonalLoansReview() {
                     </li>
                     <li className="flex items-start">
                       <span className="text-[#FB923C] mr-2 font-bold">•</span>
-                      <span>You've been denied by SoFi's algorithm despite strong credit</span>
+                      <span>You&apos;ve been denied by SoFi&apos;s algorithm despite strong credit</span>
                     </li>
                   </ul>
                 </div>
@@ -529,7 +531,7 @@ export default function SoFiPersonalLoansReview() {
                     <h3 className="font-bold text-lg text-[#1F2937]">RegularFolkFinance Team</h3>
                     <p className="text-sm text-[#6B7280] mb-2">Editorial Team</p>
                     <p className="text-sm text-[#1F2937]" style={{ lineHeight: '1.7' }}>
-                      We're not financial advisors. We're a team that spent hundreds of hours reading what real people experienced with personal loans. This analysis is based on 127+ real stories from borrowers collected over the past seven years.
+                      We&apos;re not financial advisors. We&apos;re a team that spent hundreds of hours reading what real people experienced with personal loans. This analysis is based on 127+ real stories from borrowers collected over the past seven years.
                     </p>
                   </div>
                 </div>
@@ -676,7 +678,7 @@ export default function SoFiPersonalLoansReview() {
             Compare Rates Now
           </button>
           <p className="text-sm mt-4 opacity-75">
-            Soft credit check only - won't affect your score
+            Soft credit check only - won&apos;t affect your score
           </p>
         </div>
       </section>

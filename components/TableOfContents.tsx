@@ -45,11 +45,11 @@ export default function TableOfContents({
   }, [items]);
 
   return (
-    <div className="sticky top-24 z-30 w-64">
+    <div className="w-64">
       <h3 className="font-bold text-lg mb-4 text-[#1F2937]">Table of Contents</h3>
       <nav>
         {items.map((item) => (
-          <a
+          
             key={item.id}
             href={`#${item.id}`}
             className={`block py-2 text-sm hover:text-[#06B6D4] transition-colors ${
