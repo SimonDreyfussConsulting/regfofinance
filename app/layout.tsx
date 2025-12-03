@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   verification: {
     google: 'WeRHCaKSu1_4FSLCCkjf8DgqvanuNAAlW3QZcTFPt5w',
   },
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/apple-touch-icon.svg',
+  },
 };
 
 interface RootLayoutProps {
