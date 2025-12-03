@@ -32,6 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+        <meta name="fo-verify" content="a7b154b7-3e08-4799-b60f-7eb476a621dc" />
         <GoogleTagManager />
         <GoogleAnalytics />
       </head>
