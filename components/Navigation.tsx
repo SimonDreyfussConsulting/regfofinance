@@ -11,7 +11,7 @@ const navItems = [
   { label: 'Mortgages', href: '/mortgages' },
   { label: 'Retirement', href: '/retirement' },
   { label: 'Debt', href: '/debt' },
-  { label: 'Reviews', href: '/guides' },
+  { label: 'Budgeting', href: '/budgeting' },
   { label: 'Articles', href: '/articles' },
 ];
 
