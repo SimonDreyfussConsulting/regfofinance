@@ -36,7 +36,7 @@ export default function BudgetingContent() {
       ],
       ctaText: 'Try Tiller Free →',
       ctaLink: 'https://www.awin1.com/cread.php?awinmid=18709&awinaffid=2683750&campaign=Tiller+Money+%28US%29&clickref=budgeting-landing&ued=https%3A%2F%2Ftiller.com%2Fpricing%2F',
-      reviewLink: '/budgeting/tiller-review',
+      reviewLink: '/budgeting/tiller-money-review',
       isPrimary: true
     },
     {

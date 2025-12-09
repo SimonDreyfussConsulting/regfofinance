@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dir \"C:\\Users\\simon\\Desktop\\Real Folk Financing New Site\\public\\images\" /b)"
+      "Bash(dir \"C:\\Users\\simon\\Desktop\\Real Folk Financing New Site\\public\\images\" /b)",
+      "Bash(dir:*)",
+      "Bash(mkdir:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }
