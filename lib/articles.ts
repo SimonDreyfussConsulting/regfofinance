@@ -3,7 +3,8 @@ export type ArticleCategory =
   | 'credit-cards'
   | 'personal-loans'
   | 'community-insights'
-  | 'money-tips';
+  | 'money-tips'
+  | 'budgeting';
 
 export interface Article {
   slug: string;
@@ -24,6 +25,7 @@ export const CATEGORY_LABELS: Record<ArticleCategory, string> = {
   'personal-loans': 'Personal Loans',
   'community-insights': 'Community Insights',
   'money-tips': 'Money Tips',
+  'budgeting': 'Budgeting',
 };
 
 export const CATEGORY_COLORS: Record<ArticleCategory, string> = {
@@ -32,11 +34,24 @@ export const CATEGORY_COLORS: Record<ArticleCategory, string> = {
   'personal-loans': 'bg-orange-100 text-orange-800',
   'community-insights': 'bg-purple-100 text-purple-800',
   'money-tips': 'bg-green-100 text-green-800',
+  'budgeting': 'bg-cyan-100 text-cyan-800',
 };
 
 // Placeholder articles - ALL have isPublished: false
 // These will show "Coming Soon" overlay, not link anywhere
 export const PLACEHOLDER_ARTICLES: Article[] = [
+  {
+    slug: 'mint-shutdown-best-alternatives-2025',
+    title: 'Mint Is Gone: The Best Alternatives According to Reddit',
+    excerpt: 'We analyzed 500+ Reddit discussions from r/personalfinance, r/ynab, and r/budget to find what real budgeters recommend after Mint\'s shutdown.',
+    category: 'budgeting',
+    categoryLabel: 'Budgeting',
+    publishedAt: '2025-12-10',
+    readTime: 8,
+    communityDataPoints: 500,
+    featuredImage: '/images/articles/mint-alternatives-featured.jpg',
+    isPublished: false,
+  },
   {
     slug: 'fed-rate-decision-reddit-reaction',
     title: 'Fed Holds Rates: What Reddit\'s r/personalfinance Is Saying',
@@ -57,6 +72,7 @@ export const PLACEHOLDER_ARTICLES: Article[] = [
     publishedAt: '2025-11-28',
     readTime: 8,
     communityDataPoints: 5200,
+    featuredImage: '/images/articles/chase-sapphire-comparison.jpg',
     isPublished: false,
   },
   {
@@ -68,6 +84,7 @@ export const PLACEHOLDER_ARTICLES: Article[] = [
     publishedAt: '2025-11-25',
     readTime: 7,
     communityDataPoints: 890,
+    featuredImage: '/images/articles/personal-loans-holiday-debt.jpg',
     isPublished: false,
   },
   {
@@ -115,4 +132,26 @@ export function getFeaturedArticle(): Article {
 
 export function getRecentArticles(count: number = 6): Article[] {
   return PLACEHOLDER_ARTICLES.slice(0, count);
+}
+
+export function getLatestArticleByCategory(categorySlug: string): Article | null {
+  // Map URL slugs to ArticleCategory values
+  const categoryMap: Record<string, ArticleCategory> = {
+    'budgeting': 'budgeting',
+    'personal-loans': 'personal-loans',
+    'credit-cards': 'credit-cards',
+    'banking': 'market-news', // fallback
+    'mortgages': 'market-news', // fallback
+    'retirement': 'money-tips', // fallback
+    'debt': 'personal-loans', // fallback
+  };
+
+  const articleCategory = categoryMap[categorySlug];
+  if (!articleCategory) return null;
+
+  const filtered = PLACEHOLDER_ARTICLES
+    .filter(article => article.category === articleCategory)
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+
+  return filtered[0] || null;
 }

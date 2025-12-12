@@ -5,6 +5,8 @@ import Navigation from "@/components/Navigation";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
+import LatestNews from '@/components/LatestNews';
+import FeaturedArticle from '@/components/FeaturedArticle';
 
 const creditCards = [
   {
@@ -292,6 +294,9 @@ function CreditCardsContent() {
         </div>
       </section>
 
+      {/* FEATURED ARTICLE - Above the fold */}
+      <FeaturedArticle pageCategory="credit-cards" />
+
       {/* Quick Filters */}
       <section className="py-6 border-b bg-white sticky top-14 md:top-16 z-40 shadow-sm">
         <div className="container mx-auto px-4">
@@ -440,6 +445,9 @@ function CreditCardsContent() {
           </div>
         </div>
       </section>
+
+      {/* Latest News */}
+      <LatestNews category="credit-cards" />
     </div>
   );
 }

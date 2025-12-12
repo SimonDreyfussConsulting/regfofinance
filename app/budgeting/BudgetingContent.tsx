@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Image from 'next/image';
+import LatestNews from '@/components/LatestNews';
+import FeaturedArticle from '@/components/FeaturedArticle';
 
 export default function BudgetingContent() {
   const [expandedCard, setExpandedCard] = useState<number | null>(1);
@@ -193,6 +195,9 @@ export default function BudgetingContent() {
           </p>
         </div>
       </section>
+
+      {/* FEATURED ARTICLE - Above the fold */}
+      <FeaturedArticle pageCategory="budgeting" />
 
       {/* Featured Tools Cards - Horizontal Scroll on Mobile */}
       <section className="py-12 px-4 bg-gray-50">
@@ -417,6 +422,9 @@ export default function BudgetingContent() {
           </div>
         </div>
       </section>
+
+      {/* Latest News */}
+      <LatestNews category="budgeting" />
 
       {/* FAQ Section */}
       <section className="py-16 px-4 bg-white">

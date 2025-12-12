@@ -2,6 +2,8 @@ import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
 import { getContentYear } from "@/utils/getContentYear";
+import LatestNews from '@/components/LatestNews';
+import FeaturedArticle from '@/components/FeaturedArticle';
 
 export const metadata: Metadata = {
   title: `Best Personal Loans ${getContentYear()} | RegularFolkFinance`,
@@ -128,6 +130,9 @@ export default function PersonalLoans() {
         </div>
       </section>
 
+      {/* FEATURED ARTICLE - Above the fold */}
+      <FeaturedArticle pageCategory="personal-loans" />
+
       {/* Lenders List */}
       <section className="py-12">
         <div className="container mx-auto px-4">
@@ -250,6 +255,9 @@ export default function PersonalLoans() {
           </div>
         </div>
       </section>
+
+      {/* Latest News */}
+      <LatestNews category="personal-loans" />
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] text-white">
