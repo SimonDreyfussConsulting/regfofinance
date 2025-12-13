@@ -19,10 +19,10 @@ export default function ArticlesPage() {
   const featuredArticle = getFeaturedArticle();
   const filteredArticles = getArticlesByCategory(activeCategory);
 
-  // Exclude featured article from grid when showing all
+  // Exclude featured article from grid when showing all (with null check)
   const gridArticles = activeCategory
     ? filteredArticles
-    : filteredArticles.filter(a => a.slug !== featuredArticle.slug);
+    : filteredArticles.filter(a => a.slug !== featuredArticle?.slug);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -58,8 +58,8 @@ export default function ArticlesPage() {
 
         {/* Main Content */}
         <section className="container mx-auto px-4 py-8 sm:py-12">
-          {/* Featured Article - Only show when no filter */}
-          {!activeCategory && (
+          {/* Featured Article - Only show when no filter and article exists */}
+          {!activeCategory && featuredArticle && (
             <FeaturedArticle article={featuredArticle} />
           )}
 
