@@ -1,14 +1,27 @@
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+// ============================================
+// TYPES
+// ============================================
+
 export type ArticleCategory =
   | 'market-news'
   | 'credit-cards'
   | 'personal-loans'
   | 'community-insights'
   | 'money-tips'
-  | 'budgeting';
+  | 'budgeting'
+  | 'news'
+  | 'investing'
+  | 'banking'
+  | 'debt';
 
 export interface Article {
   slug: string;
   title: string;
+  subtitle?: string;
   excerpt: string;
   category: ArticleCategory;
   categoryLabel: string;
@@ -33,6 +46,10 @@ export const CATEGORY_LABELS: Record<ArticleCategory, string> = {
   'community-insights': 'Community Insights',
   'money-tips': 'Money Tips',
   'budgeting': 'Budgeting',
+  'news': 'News',
+  'investing': 'Investing',
+  'banking': 'Banking',
+  'debt': 'Debt',
 };
 
 export const CATEGORY_COLORS: Record<ArticleCategory, string> = {
@@ -42,7 +59,81 @@ export const CATEGORY_COLORS: Record<ArticleCategory, string> = {
   'community-insights': 'bg-purple-100 text-purple-800',
   'money-tips': 'bg-green-100 text-green-800',
   'budgeting': 'bg-cyan-100 text-cyan-800',
+  'news': 'bg-gray-100 text-gray-800',
+  'investing': 'bg-yellow-100 text-yellow-800',
+  'banking': 'bg-indigo-100 text-indigo-800',
+  'debt': 'bg-red-100 text-red-800',
 };
+
+// ============================================
+// READ MDX FILES FROM FILESYSTEM
+// ============================================
+
+const ARTICLES_DIR = path.join(process.cwd(), 'content', 'articles');
+
+function getMDXArticles(): Article[] {
+  // Check if directory exists
+  if (!fs.existsSync(ARTICLES_DIR)) {
+    console.warn('Articles directory not found:', ARTICLES_DIR);
+    return [];
+  }
+
+  const files = fs.readdirSync(ARTICLES_DIR);
+  const mdxFiles = files.filter(file => file.endsWith('.mdx') || file.endsWith('.md'));
+
+  const articles: Article[] = mdxFiles.map(filename => {
+    const filePath = path.join(ARTICLES_DIR, filename);
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const { data: frontmatter, content } = matter(fileContents);
+
+    const slug = filename.replace(/\.mdx?$/, '');
+    
+    // Parse category from frontmatter or default to 'news'
+    const rawCategory = frontmatter.category?.toLowerCase().replace(/\s+/g, '-') || 'news';
+    const category: ArticleCategory = (rawCategory in CATEGORY_LABELS) 
+      ? rawCategory as ArticleCategory 
+      : 'news';
+
+    // Estimate read time (roughly 200 words per minute)
+    const wordCount = content.split(/\s+/).length;
+    const readTime = Math.max(1, Math.ceil(wordCount / 200));
+
+    // Create excerpt from content if not provided
+    const excerpt = frontmatter.metaDescription || 
+                    frontmatter.subtitle || 
+                    content.slice(0, 160).replace(/[#*_\n]/g, '').trim() + '...';
+
+    return {
+      slug,
+      title: frontmatter.title || 'Untitled',
+      subtitle: frontmatter.subtitle,
+      excerpt,
+      content,
+      category,
+      categoryLabel: CATEGORY_LABELS[category] || 'News',
+      tags: frontmatter.tags || [],
+      author: frontmatter.author || 'RegularFolkFinance Team',
+      publishedAt: frontmatter.date || new Date().toISOString(),
+      updatedAt: frontmatter.updatedAt,
+      readTime,
+      featuredImage: frontmatter.image,
+      featuredImageAlt: frontmatter.imageAlt || frontmatter.title,
+      imageAttribution: frontmatter.imageAttribution,
+      communityDataPoints: frontmatter.communityDataPoints,
+      isPublished: true, // MDX files are published by default
+      isFeatured: frontmatter.featured || false,
+    };
+  });
+
+  // Sort by date, newest first
+  return articles.sort((a, b) => 
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
+}
+
+// ============================================
+// PLACEHOLDER ARTICLES (for unpublished/coming soon)
+// ============================================
 
 // Sample published article content for testing
 const SAMPLE_ARTICLE_CONTENT = `
@@ -92,7 +183,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 `;
 
-// Articles array - Scout will add new articles here
 export const PLACEHOLDER_ARTICLES: Article[] = [
   // ✅ PUBLISHED & FEATURED - This is our test article
   {
@@ -108,8 +198,8 @@ export const PLACEHOLDER_ARTICLES: Article[] = [
     featuredImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1440&h=810&fit=crop&q=80',
     featuredImageAlt: 'Financial planning documents and calculator on desk',
     imageAttribution: 'Photo by Towfiqu barbhuiya on Unsplash',
-    isPublished: true,   // ✅ PUBLISHED
-    isFeatured: true,    // ✅ FEATURED
+    isPublished: true,
+    isFeatured: true,
     tags: ['personal-loans', 'interest-rates', 'market-news'],
     author: 'RegularFolkFinance Research Team',
     content: SAMPLE_ARTICLE_CONTENT,
@@ -208,25 +298,48 @@ export const PLACEHOLDER_ARTICLES: Article[] = [
   },
 ];
 
+// ============================================
+// COMBINED DATA & HELPER FUNCTIONS
+// ============================================
+
+// Get all articles (MDX files + placeholders)
+export function getAllArticles(): Article[] {
+  const mdxArticles = getMDXArticles();
+  
+  // Get placeholder slugs that don't have MDX files yet
+  const mdxSlugs = new Set(mdxArticles.map(a => a.slug));
+  const uniquePlaceholders = PLACEHOLDER_ARTICLES.filter(p => !mdxSlugs.has(p.slug));
+  
+  // Combine and sort by date
+  const allArticles = [...mdxArticles, ...uniquePlaceholders];
+  return allArticles.sort((a, b) => 
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
+}
+
 // Get all published articles
 export function getPublishedArticles(): Article[] {
-  return PLACEHOLDER_ARTICLES.filter(article => article.isPublished);
+  return getAllArticles().filter(article => article.isPublished);
 }
 
 // Get articles by category
 export function getArticlesByCategory(category?: ArticleCategory): Article[] {
-  if (!category) return PLACEHOLDER_ARTICLES;
-  return PLACEHOLDER_ARTICLES.filter(article => article.category === category);
+  const allArticles = getAllArticles();
+  if (!category) return allArticles;
+  return allArticles.filter(article => article.category === category);
 }
 
-// Get featured article (first published + featured)
+// Get featured article (first published + featured, or most recent published)
 export function getFeaturedArticle(): Article | null {
-  return PLACEHOLDER_ARTICLES.find(article => article.isPublished && article.isFeatured) || null;
+  const allArticles = getAllArticles();
+  const featured = allArticles.find(a => a.isFeatured && a.isPublished);
+  if (featured) return featured;
+  return allArticles.find(a => a.isPublished) || null;
 }
 
 // Get recent articles
 export function getRecentArticles(count: number = 6): Article[] {
-  return PLACEHOLDER_ARTICLES.slice(0, count);
+  return getAllArticles().slice(0, count);
 }
 
 // Get latest published article by category
@@ -235,16 +348,18 @@ export function getLatestArticleByCategory(categorySlug: string): Article | null
     'budgeting': 'budgeting',
     'personal-loans': 'personal-loans',
     'credit-cards': 'credit-cards',
-    'banking': 'market-news',
+    'banking': 'banking',
     'mortgages': 'market-news',
     'retirement': 'money-tips',
-    'debt': 'personal-loans',
+    'debt': 'debt',
+    'news': 'news',
+    'market-news': 'market-news',
   };
 
   const articleCategory = categoryMap[categorySlug];
   if (!articleCategory) return null;
 
-  const filtered = PLACEHOLDER_ARTICLES
+  const filtered = getAllArticles()
     .filter(article => article.category === articleCategory && article.isPublished)
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 
@@ -253,12 +368,13 @@ export function getLatestArticleByCategory(categorySlug: string): Article | null
 
 // Get article by slug
 export function getArticleBySlug(slug: string): Article | null {
-  return PLACEHOLDER_ARTICLES.find(article => article.slug === slug) || null;
+  const allArticles = getAllArticles();
+  return allArticles.find(article => article.slug === slug) || null;
 }
 
 // Get articles by tag
 export function getArticlesByTag(tag: string): Article[] {
-  return PLACEHOLDER_ARTICLES
+  return getAllArticles()
     .filter(article => article.tags?.includes(tag))
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 }
@@ -268,7 +384,7 @@ export function getRelatedArticles(currentSlug: string, limit: number = 3): Arti
   const currentArticle = getArticleBySlug(currentSlug);
   if (!currentArticle) return [];
 
-  const related = PLACEHOLDER_ARTICLES
+  const related = getAllArticles()
     .filter(article => {
       if (article.slug === currentSlug) return false;
       const hasMatchingTag = currentArticle.tags?.some(tag => article.tags?.includes(tag));
@@ -287,8 +403,13 @@ export function getRelatedArticles(currentSlug: string, limit: number = 3): Arti
 // Get all unique tags
 export function getAllTags(): string[] {
   const tagSet = new Set<string>();
-  PLACEHOLDER_ARTICLES.forEach(article => {
+  getAllArticles().forEach(article => {
     article.tags?.forEach(tag => tagSet.add(tag));
   });
   return Array.from(tagSet).sort();
+}
+
+// Get all slugs (for generateStaticParams)
+export function getAllArticleSlugs(): string[] {
+  return getAllArticles().map(a => a.slug);
 }
