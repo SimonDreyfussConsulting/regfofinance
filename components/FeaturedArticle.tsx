@@ -1,35 +1,42 @@
+// components/FeaturedArticle.tsx
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { getLatestArticleByCategory } from '@/lib/articles';
+
+// Article type - matches what's passed from server
+export interface FeaturedArticleData {
+  slug: string;
+  title: string;
+  categoryLabel?: string;
+  featuredImage?: string;
+  communityDataPoints?: number;
+  readTime: number;
+}
 
 interface FeaturedArticleProps {
   pageCategory: string;
+  article: FeaturedArticleData | null;
 }
 
-export default function FeaturedArticle({ pageCategory }: FeaturedArticleProps) {
+export default function FeaturedArticle({ pageCategory, article }: FeaturedArticleProps) {
   const [imageError, setImageError] = useState(false);
-  const article = getLatestArticleByCategory(pageCategory);
 
   // Don't render if no article found
   if (!article) return null;
 
   const articleUrl = `/${pageCategory}/${article.slug}`;
-
   const imageUrl = article.featuredImage || '/images/placeholder-article.jpg';
 
   return (
     <section className="w-full py-3 sm:py-4">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* COMPACT BANNER - ~70-80px tall */}
         <Link
           href={articleUrl}
           className="group flex items-center gap-4 bg-gradient-to-r from-slate-50 to-blue-50/50 hover:from-slate-100 hover:to-blue-100/50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-slate-200/60 hover:border-teal-300 transition-all duration-200 hover:shadow-md"
         >
-
           {/* Small Square Image - 56px on mobile, 70px on desktop */}
           <div className="relative w-14 h-14 sm:w-[70px] sm:h-[70px] flex-shrink-0 rounded-lg overflow-hidden">
             {!imageError ? (
@@ -91,7 +98,6 @@ export default function FeaturedArticle({ pageCategory }: FeaturedArticleProps) 
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </div>
-
         </Link>
       </div>
     </section>
