@@ -3,6 +3,8 @@
 import { Metadata } from 'next';
 import { getLatestArticleByCategory } from '@/lib/articles';
 import BudgetingContent from './BudgetingContent';
+import { FeaturedArticleData } from '@/components/FeaturedArticle';
+import LatestNews from '@/components/LatestNews';
 
 export const metadata: Metadata = {
   title: 'Best Budgeting Tools 2025 | RegularFolkFinance',
@@ -11,19 +13,29 @@ export const metadata: Metadata = {
 
 export default function BudgetingPage() {
   // Fetch on server - allowed because this is a Server Component
-  const featuredArticle = getLatestArticleByCategory('budgeting');
+  const article = getLatestArticleByCategory('budgeting');
 
-  // Serialize the article data for the client component
-  const articleData = featuredArticle
+  // Transform to FeaturedArticleData format
+  const featuredArticle: FeaturedArticleData | null = article
     ? {
-        slug: featuredArticle.slug,
-        title: featuredArticle.title,
-        categoryLabel: featuredArticle.categoryLabel,
-        featuredImage: featuredArticle.featuredImage,
-        communityDataPoints: featuredArticle.communityDataPoints,
-        readTime: featuredArticle.readTime,
+        slug: article.slug,
+        title: article.title,
+        excerpt: article.excerpt,
+        category: article.category,
+        categoryLabel: article.categoryLabel,
+        publishedAt: article.date,
+        readTime: article.readTime,
+        featuredImage: article.featuredImage,
+        featuredImageAlt: article.featuredImageAlt,
+        isPublished: true,
+        communityDataPoints: article.communityDataPoints,
       }
     : null;
 
-  return <BudgetingContent featuredArticle={articleData} />;
+  return (
+    <>
+      <BudgetingContent featuredArticle={featuredArticle} />
+      <LatestNews category="budgeting" />
+    </>
+  );
 }

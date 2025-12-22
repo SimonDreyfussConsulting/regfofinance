@@ -1,6 +1,6 @@
 'use client';
 
-import { ArticleCategory, CATEGORY_LABELS } from '@/lib/articles';
+import { ArticleCategory, CATEGORY_LABELS } from '@/lib/article-types';
 
 interface CategoryFilterProps {
   activeCategory?: ArticleCategory;

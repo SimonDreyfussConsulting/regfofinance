@@ -14,7 +14,10 @@ type ArticleCategory =
   | 'save-money'
   | 'make-money'
   | 'debt'
-  | 'news';
+  | 'news'
+  | 'market-news'
+  | 'community-insights'
+  | 'money-tips';
 
 interface ArticlePreview {
   slug: string;
@@ -26,12 +29,13 @@ interface ArticlePreview {
   readTime: number;
   communityDataPoints?: number;
   publishedAt: string;
+  isPublished?: boolean;
 }
 
 interface ArticlesPageClientProps {
   articles: ArticlePreview[];
   featuredArticle: ArticlePreview | null;
-  categoryColors: Record<ArticleCategory, string>;
+  categoryColors: Record<string, string>;
 }
 
 const CATEGORY_OPTIONS: { value: ArticleCategory | undefined; label: string }[] = [

@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Article, CATEGORY_COLORS } from '@/lib/articles';
+import type { Article } from '@/lib/articles';
+import { CATEGORY_COLORS } from '@/lib/article-types';
 
 interface FeaturedArticleProps {
   article: Article | null;
@@ -15,7 +16,7 @@ export default function FeaturedArticle({ article }: FeaturedArticleProps) {
   // Don't render if no article
   if (!article) return null;
 
-  const formattedDate = new Date(article.publishedAt).toLocaleDateString('en-US', {
+  const formattedDate = new Date(article.date).toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',

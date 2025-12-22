@@ -12,14 +12,14 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     excerpt,
     category,
     categoryLabel,
-    publishedAt,
+    date,
     readTime,
     communityDataPoints,
     isPublished
   } = article;
 
   // Format date
-  const formattedDate = new Date(publishedAt).toLocaleDateString('en-US', {
+  const formattedDate = new Date(date).toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',

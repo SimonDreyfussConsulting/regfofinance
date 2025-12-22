@@ -3,7 +3,8 @@ import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
 import { getContentYear } from "@/utils/getContentYear";
 import LatestNews from '@/components/LatestNews';
-import FeaturedArticle from '@/components/FeaturedArticle';
+import FeaturedArticle, { FeaturedArticleData } from '@/components/FeaturedArticle';
+import { getLatestArticleByCategory } from '@/lib/articles';
 
 export const metadata: Metadata = {
   title: `Best Personal Loans ${getContentYear()} | RegularFolkFinance`,
@@ -84,6 +85,26 @@ const personalLenders = [
 ];
 
 export default function PersonalLoans() {
+  // Fetch on server - allowed because this is a Server Component
+  const article = getLatestArticleByCategory('personal-loans');
+
+  // Transform to FeaturedArticleData format
+  const featuredArticle: FeaturedArticleData | null = article
+    ? {
+        slug: article.slug,
+        title: article.title,
+        excerpt: article.excerpt,
+        category: article.category,
+        categoryLabel: article.categoryLabel,
+        publishedAt: article.date,
+        readTime: article.readTime,
+        featuredImage: article.featuredImage,
+        featuredImageAlt: article.featuredImageAlt,
+        isPublished: true,
+        communityDataPoints: article.communityDataPoints,
+      }
+    : null;
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -131,7 +152,11 @@ export default function PersonalLoans() {
       </section>
 
       {/* FEATURED ARTICLE - Above the fold */}
-      <FeaturedArticle pageCategory="personal-loans" />
+      <section className="py-8 px-4">
+        <div className="max-w-5xl mx-auto">
+          <FeaturedArticle pageCategory="personal-loans" article={featuredArticle} />
+        </div>
+      </section>
 
       {/* Lenders List */}
       <section className="py-12">
