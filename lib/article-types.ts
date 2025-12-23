@@ -1,6 +1,11 @@
 // lib/article-types.ts
 // Shared types and constants for articles - can be imported by client components
 
+export interface TocItem {
+  id: string;
+  title: string;
+}
+
 export type ArticleCategory =
   | 'credit-cards'
   | 'personal-loans'

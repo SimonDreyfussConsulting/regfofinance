@@ -4,6 +4,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+export interface TocItem {
+  id: string;
+  title: string;
+}
+
 export interface Article {
   slug: string;
   title: string;
@@ -17,11 +22,14 @@ export interface Article {
   image?: string;
   featuredImage?: string;
   featuredImageAlt?: string;
+  featuredImageCaption?: string;
   featured?: boolean;
   isPublished: boolean;
   readTime: number;
   communityDataPoints?: number;
   tags?: string[];
+  tocItems: TocItem[];
+  ctaType?: string;
   content: string;
 }
 
@@ -38,11 +46,14 @@ export interface ArticleMetadata {
   image?: string;
   featuredImage?: string;
   featuredImageAlt?: string;
+  featuredImageCaption?: string;
   featured?: boolean;
   isPublished: boolean;
   readTime: number;
   communityDataPoints?: number;
   tags?: string[];
+  tocItems: TocItem[];
+  ctaType?: string;
 }
 
 // CATEGORY_COLORS export - REQUIRED by LatestNews.tsx
@@ -89,6 +100,25 @@ function calculateReadTime(content: string): number {
   return Math.ceil(wordCount / wordsPerMinute);
 }
 
+function extractTocFromContent(content: string): TocItem[] {
+  // Match ## headings (H2) in the content
+  const headingRegex = /^## (.+)$/gm;
+  const tocItems: TocItem[] = [];
+  let match;
+
+  while ((match = headingRegex.exec(content)) !== null) {
+    const title = match[1].trim();
+    // Generate ID from heading text - lowercase, replace spaces/special chars with hyphens
+    const id = title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+    tocItems.push({ id, title });
+  }
+
+  return tocItems;
+}
+
 const articlesDirectory = path.join(process.cwd(), 'content/articles');
 
 export function getArticleSlugs(): string[] {
@@ -118,6 +148,17 @@ export function getArticleBySlug(slug: string): Article | null {
     const description = data.description || data.excerpt || '';
     const excerpt = data.excerpt || data.description || '';
 
+    // Extract tocItems from frontmatter or auto-generate from H2 headings
+    let tocItems: TocItem[] = [];
+    if (data.tocItems && Array.isArray(data.tocItems)) {
+      tocItems = data.tocItems;
+    } else {
+      tocItems = extractTocFromContent(content);
+    }
+
+    // Determine ctaType from frontmatter or category
+    const ctaType = data.ctaType || data.category || 'generic';
+
     return {
       slug: realSlug,
       title: data.title || '',
@@ -129,13 +170,16 @@ export function getArticleBySlug(slug: string): Article | null {
       category: data.category || '',
       categoryLabel: getCategoryLabel(data.category || ''),
       image: data.image,
-      featuredImage: data.featuredImage || data.image,
-      featuredImageAlt: data.featuredImageAlt,
+      featuredImage: data.featuredImage || data.image || '/images/articles/placeholder.jpg',
+      featuredImageAlt: data.featuredImageAlt || data.title,
+      featuredImageCaption: data.featuredImageCaption,
       featured: data.featured || false,
       isPublished: data.isPublished !== false,
       readTime: calculateReadTime(content),
       communityDataPoints: data.communityDataPoints,
       tags: data.tags || [],
+      tocItems,
+      ctaType,
       content,
     };
   } catch (error) {
