@@ -199,13 +199,6 @@ export default function BudgetingContent({ featuredArticle }: BudgetingContentPr
         </div>
       </section>
 
-      {/* FEATURED ARTICLE - Above the fold */}
-      <section className="py-8 px-4">
-        <div className="max-w-5xl mx-auto">
-          <FeaturedArticle pageCategory="budgeting" article={featuredArticle} />
-        </div>
-      </section>
-
       {/* Featured Tools Cards - Horizontal Scroll on Mobile */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -261,6 +254,18 @@ export default function BudgetingContent({ featuredArticle }: BudgetingContentPr
           </div>
         </div>
       </section>
+
+      {/* FEATURED ARTICLE - Below Top Picks */}
+      {featuredArticle && (
+        <section className="py-8 px-4 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6" style={{ fontFamily: '"Source Sans Pro", sans-serif' }}>
+              Latest in Budgeting
+            </h2>
+            <FeaturedArticle pageCategory="budgeting" article={featuredArticle} />
+          </div>
+        </section>
+      )}
 
       {/* Detailed Rankings Section */}
       <section className="py-16 px-4 bg-white">

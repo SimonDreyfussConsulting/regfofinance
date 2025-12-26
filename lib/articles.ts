@@ -188,6 +188,16 @@ export function getArticleBySlug(slug: string): Article | null {
   }
 }
 
+// Helper to check if an article has valid required fields
+function isValidArticle(article: ArticleMetadata | null): article is ArticleMetadata {
+  if (!article) return false;
+  // Must have a title that's not empty
+  if (!article.title || article.title.trim() === '') return false;
+  // Must be published
+  if (!article.isPublished) return false;
+  return true;
+}
+
 export function getAllArticles(): ArticleMetadata[] {
   try {
     const slugs = getArticleSlugs();
@@ -195,13 +205,20 @@ export function getAllArticles(): ArticleMetadata[] {
       .map((slug) => {
         const article = getArticleBySlug(slug);
         if (!article) return null;
-        
+
         // Return metadata only (no content)
         const { content, ...metadata } = article;
         return metadata;
       })
-      .filter((article): article is ArticleMetadata => article !== null)
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      // Filter out null articles AND articles without valid title
+      .filter((article): article is ArticleMetadata => isValidArticle(article))
+      // Sort by date (newest first), then by title for same-date articles for consistency
+      .sort((a, b) => {
+        const dateCompare = new Date(b.date).getTime() - new Date(a.date).getTime();
+        if (dateCompare !== 0) return dateCompare;
+        // For same date, sort alphabetically by title for consistent ordering
+        return a.title.localeCompare(b.title);
+      });
 
     return articles;
   } catch (error) {
@@ -219,7 +236,21 @@ export function getArticlesByCategory(category: string): ArticleMetadata[] {
 
 export function getFeaturedArticle(category?: string): ArticleMetadata | null {
   const articles = category ? getArticlesByCategory(category) : getAllArticles();
-  return articles.find((article) => article.featured) || articles[0] || null;
+
+  // First, try to find an article explicitly marked as featured
+  const explicitlyFeatured = articles.find((article) => article.featured);
+  if (explicitlyFeatured) return explicitlyFeatured;
+
+  // Otherwise, prefer the newest article that has a real featured image
+  const withImage = articles.find((article) =>
+    article.featuredImage &&
+    article.featuredImage !== '' &&
+    article.featuredImage !== '/images/articles/placeholder.jpg'
+  );
+  if (withImage) return withImage;
+
+  // Fall back to the newest article (already sorted by date)
+  return articles[0] || null;
 }
 
 export function getRelatedArticles(currentSlug: string, limit: number = 3): ArticleMetadata[] {

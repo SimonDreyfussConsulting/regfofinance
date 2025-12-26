@@ -15,6 +15,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CATEGORY_COLORS } from '@/lib/article-types';
 
+// MDX Components for use in article content
+import CTAButton from '@/components/CTAButton';
+import Blockquote from '@/components/Blockquote';
+import ArticleImage from '@/components/ArticleImage';
+import AtAGlance from '@/components/AtAGlance';
+import UserQuote from '@/components/UserQuote';
+
+// Define MDX components available in articles
+const mdxComponents = {
+  CTAButton,
+  Blockquote,
+  ArticleImage,
+  AtAGlance,
+  UserQuote,
+};
+
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
@@ -205,6 +221,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               {article.content && (
                 <MDXRemote
                   source={article.content}
+                  components={mdxComponents}
                   options={{
                     mdxOptions: {
                       rehypePlugins: [rehypeSlug],
