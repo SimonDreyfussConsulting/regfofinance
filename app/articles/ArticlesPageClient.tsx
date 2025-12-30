@@ -17,7 +17,8 @@ type ArticleCategory =
   | 'news'
   | 'market-news'
   | 'community-insights'
-  | 'money-tips';
+  | 'money-tips'
+  | 'real-estate';
 
 interface ArticlePreview {
   slug: string;
@@ -47,7 +48,7 @@ const CATEGORY_OPTIONS: { value: ArticleCategory | undefined; label: string }[] 
   { value: 'save-money', label: 'Save Money' },
   { value: 'make-money', label: 'Make Money' },
   { value: 'debt', label: 'Debt' },
-  { value: 'news', label: 'News' },
+  { value: 'real-estate', label: 'Real Estate' },
 ];
 
 export default function ArticlesPageClient({

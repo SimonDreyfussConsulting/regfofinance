@@ -71,6 +71,7 @@ export const CATEGORY_COLORS: Record<string, string> = {
   'save-money': 'bg-emerald-100 text-emerald-800',
   'make-money': 'bg-orange-100 text-orange-800',
   debt: 'bg-rose-100 text-rose-800',
+  'real-estate': 'bg-cyan-100 text-cyan-800',
 };
 
 // Category label mapping
@@ -88,6 +89,7 @@ const categoryLabels: Record<string, string> = {
   'save-money': 'Save Money',
   'make-money': 'Make Money',
   debt: 'Debt',
+  'real-estate': 'Real Estate',
 };
 
 function getCategoryLabel(category: string): string {
