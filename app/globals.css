@@ -104,3 +104,19 @@ a:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   transform: translateY(-4px);
 }
+
+/* Lede/Standfirst - first paragraph after content starts */
+.prose > p:first-of-type {
+  @apply text-xl text-slate-700 font-normal leading-relaxed;
+  @apply mb-8 pb-6 border-b border-slate-200;
+}
+
+/* Consistent paragraph spacing */
+.prose > p {
+  @apply mb-5;
+}
+
+/* Spacing after horizontal rules */
+.prose hr {
+  @apply my-8;
+}
