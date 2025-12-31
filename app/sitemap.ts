@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 
 // Configuration for route priorities and change frequencies
 const routeConfig: Record<string, { priority: number; changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' }> = {
@@ -22,6 +23,43 @@ const routeConfig: Record<string, { priority: number; changeFrequency: 'always' 
 // Default config for routes not explicitly defined
 const defaultConfig = { priority: 0.8, changeFrequency: 'weekly' as const };
 
+// Article config - slightly higher priority for fresh content
+const articleConfig = { priority: 0.85, changeFrequency: 'weekly' as const };
+
+// Get all published articles from content/articles directory
+function getPublishedArticles(): { slug: string; date: string }[] {
+  const articlesDir = path.join(process.cwd(), 'content/articles');
+  const articles: { slug: string; date: string }[] = [];
+
+  try {
+    if (!fs.existsSync(articlesDir)) {
+      return [];
+    }
+
+    const files = fs.readdirSync(articlesDir);
+
+    for (const file of files) {
+      if (!file.endsWith('.mdx')) continue;
+
+      const filePath = path.join(articlesDir, file);
+      const fileContents = fs.readFileSync(filePath, 'utf-8');
+      const { data } = matter(fileContents);
+
+      // Only include published articles with valid titles
+      if (data.isPublished !== false && data.title && data.title.trim() !== '') {
+        articles.push({
+          slug: file.replace('.mdx', ''),
+          date: data.date || new Date().toISOString(),
+        });
+      }
+    }
+  } catch (error) {
+    console.error('Error reading articles:', error);
+  }
+
+  return articles;
+}
+
 // Routes to exclude from sitemap (noindex pages, API routes, etc.)
 const excludePatterns = [
   '/api',
@@ -41,8 +79,10 @@ function getRoutes(dir: string, baseRoute: string = ''): string[] {
       const routePath = `${baseRoute}/${item.name}`;
       
       if (item.isDirectory()) {
-        // Skip special Next.js directories and excluded patterns
-        if (item.name.startsWith('_') || item.name.startsWith('.') || item.name === 'api' || item.name === 'components') {
+        // Skip special Next.js directories, dynamic routes, and excluded patterns
+        if (item.name.startsWith('_') || item.name.startsWith('.') ||
+            item.name.startsWith('[') || // Skip dynamic route folders like [slug]
+            item.name === 'api' || item.name === 'components') {
           continue;
         }
         
@@ -96,27 +136,27 @@ function checkForNoIndex(routePath: string, appDir: string): boolean {
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://regularfolkfinance.com';
   const currentDate = new Date();
-  
-  // Get the app directory path - adjust if your structure is different
+
+  // Get the app directory path
   const appDir = path.join(process.cwd(), 'app');
-  
-  // Auto-discover routes
+
+  // Auto-discover static routes (excludes dynamic [slug] routes)
   const discoveredRoutes = getRoutes(appDir);
-  
+
   // Add root route
   const allRoutes = ['/', ...discoveredRoutes];
-  
-  // Filter out noindexed pages and build sitemap entries
+
+  // Build sitemap entries for static pages
   const sitemapEntries: MetadataRoute.Sitemap = [];
-  
+
   for (const route of allRoutes) {
     // Skip if page has noindex
     if (route !== '/' && checkForNoIndex(route, appDir)) {
       continue;
     }
-    
+
     const config = routeConfig[route] || defaultConfig;
-    
+
     sitemapEntries.push({
       url: `${baseUrl}${route === '/' ? '' : route}`,
       lastModified: currentDate,
@@ -124,9 +164,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: config.priority,
     });
   }
-  
+
+  // Get all published articles and add them to sitemap
+  const articles = getPublishedArticles();
+
+  for (const article of articles) {
+    sitemapEntries.push({
+      url: `${baseUrl}/articles/${article.slug}`,
+      lastModified: new Date(article.date),
+      changeFrequency: articleConfig.changeFrequency,
+      priority: articleConfig.priority,
+    });
+  }
+
   // Sort by priority (highest first) for cleaner output
   sitemapEntries.sort((a, b) => (b.priority || 0) - (a.priority || 0));
-  
+
   return sitemapEntries;
 }
