@@ -116,8 +116,53 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   // Calculate word count from content for byline
   const wordCount = article.content.split(/\s+/).length;
 
+  // JSON-LD Schema for Article
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    image: article.featuredImage
+      ? article.featuredImage.startsWith('http')
+        ? article.featuredImage
+        : `https://regularfolkfinance.com${article.featuredImage}`
+      : undefined,
+    author: {
+      '@type': 'Organization',
+      name: article.author,
+      url: 'https://regularfolkfinance.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'RegularFolkFinance',
+      url: 'https://regularfolkfinance.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://regularfolkfinance.com/logo.png',
+        width: 600,
+        height: 60,
+      },
+    },
+    datePublished: article.date,
+    dateModified: article.date,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://regularfolkfinance.com/articles/${slug}`,
+    },
+    articleSection: article.categoryLabel,
+    wordCount: wordCount,
+    keywords: article.tags?.join(', '),
+    isAccessibleForFree: true,
+    inLanguage: 'en-US',
+  };
+
   return (
     <>
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
 
       {/* Hero Section */}
