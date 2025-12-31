@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
-import { getContentYear } from "@/utils/getContentYear";
+import { getContentMonthYear } from "@/utils/getContentYear";
 import CategoryNews from '@/components/CategoryNews';
 
 export const metadata: Metadata = {
-  title: `Best Mortgage Lenders ${getContentYear()} | RegularFolkFinance`,
+  title: `Best Mortgage Lenders for ${getContentMonthYear()} | RegularFolkFinance`,
   description: "Compare mortgage lenders based on 22,000+ real homebuyer reviews. Find the best rates for first-time buyers, refinancing, and more.",
   alternates: {
     canonical: 'https://regularfolkfinance.com/mortgages',
@@ -162,7 +162,7 @@ export default function MortgagesPage() {
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#06B6D4] text-white rounded-full text-sm font-semibold">MORTGAGES</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
-              Best Mortgage Lenders for First-Time Buyers & Refinancing
+              Best Mortgage Lenders for {getContentMonthYear()}
             </h1>
             <p className="text-xl text-[#1F2937] mb-6" style={{ lineHeight: '1.7' }}>
               We analyzed 22,000+ real homebuyer reviews to find lenders who actually deliver on their promises.

@@ -3,9 +3,10 @@
 import { Metadata } from 'next';
 import { getLatestArticles } from '@/lib/articles';
 import CreditCardsContent from './CreditCardsContent';
+import { getContentMonthYear } from '@/utils/getContentYear';
 
 export const metadata: Metadata = {
-  title: 'Best Credit Cards 2026 | RegularFolkFinance',
+  title: `Best Credit Cards for ${getContentMonthYear()} | RegularFolkFinance`,
   description: 'Compare the best credit cards based on real user experiences from Reddit and finance communities.',
 };
 

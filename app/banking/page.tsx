@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
-import { getContentYear } from "@/utils/getContentYear";
+import { getContentMonthYear } from "@/utils/getContentYear";
 import CategoryNews from '@/components/CategoryNews';
 
 export const metadata: Metadata = {
-  title: `Best Online Banks & High-Yield Savings ${getContentYear()} | RegularFolkFinance`,
+  title: `Best Online Banks & High-Yield Savings for ${getContentMonthYear()} | RegularFolkFinance`,
   description: "Compare online banks, high-yield savings accounts, and checking accounts based on 18,000+ real customer reviews. Find the best rates with no hidden fees.",
   alternates: {
     canonical: 'https://regularfolkfinance.com/banking',
@@ -162,7 +162,7 @@ export default function BankingPage() {
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#3B82F6] text-white rounded-full text-sm font-semibold">BANKING</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
-              Best Online Banks & High-Yield Savings Accounts
+              Best Online Banks & High-Yield Savings for {getContentMonthYear()}
             </h1>
             <p className="text-xl text-[#1F2937] mb-6" style={{ lineHeight: '1.7' }}>
               We analyzed 18,000+ real customer reviews to find banks that actually deliver on their promises.

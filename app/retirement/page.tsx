@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
-import { getContentYear } from "@/utils/getContentYear";
+import { getContentMonthYear } from "@/utils/getContentYear";
 import CategoryNews from '@/components/CategoryNews';
 
 export const metadata: Metadata = {
-  title: `Best Retirement Accounts & Investment Platforms ${getContentYear()} | RegularFolkFinance`,
+  title: `Best Retirement Accounts & Investment Platforms for ${getContentMonthYear()} | RegularFolkFinance`,
   description: "Compare 401k providers, IRA accounts, and investment platforms based on 15,000+ real investor reviews. Find low fees and solid returns.",
   alternates: {
     canonical: 'https://regularfolkfinance.com/retirement',
@@ -162,7 +162,7 @@ export default function RetirementPage() {
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#10B981] text-white rounded-full text-sm font-semibold">RETIREMENT</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
-              Best Retirement Accounts & Investment Platforms
+              Best Retirement Accounts & Investment Platforms for {getContentMonthYear()}
             </h1>
             <p className="text-xl text-[#1F2937] mb-6" style={{ lineHeight: '1.7' }}>
               We analyzed 15,000+ real investor reviews to find platforms that actually help regular people build wealth.

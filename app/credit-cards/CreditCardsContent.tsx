@@ -239,8 +239,17 @@ function CreditCardsContentInner({ articles }: CreditCardsContentInnerProps) {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  // Year for display
-  const currentYear = 2026;
+  // Dynamic month/year for display - December shows January of next year
+  const getMonthYear = () => {
+    const now = new Date();
+    const month = now.getMonth();
+    const year = now.getFullYear();
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'];
+    if (month === 11) return `January ${year + 1}`;
+    return `${monthNames[month]} ${year}`;
+  };
+  const currentMonthYear = getMonthYear();
 
   useEffect(() => {
     const category = searchParams.get('category') || 'all';
@@ -280,12 +289,12 @@ function CreditCardsContentInner({ articles }: CreditCardsContentInnerProps) {
             <span className="inline-block mb-4 px-3 py-1 bg-[#3B82F6] text-white rounded-full text-sm font-semibold">
               CREDIT CARDS
             </span>
-            {/* DYNAMIC H1 - Auto-updates year */}
+            {/* DYNAMIC H1 - Auto-updates month/year */}
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              The Best Credit Cards of {currentYear}, According to People Who Actually Use Them
+              Best Credit Cards for {currentMonthYear}
             </h1>
             <p className="text-xl text-gray-700 mb-6">
-              We spent weeks reading what 27,400+ real cardholders said on Reddit, Credit Karma, and review sites in {currentYear}.
+              We spent weeks reading what 27,400+ real cardholders said on Reddit, Credit Karma, and review sites.
               Here's what they wish they knew before applying.
             </p>
             <p className="text-sm text-gray-600 italic">

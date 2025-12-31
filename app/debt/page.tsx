@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
-import { getContentYear } from "@/utils/getContentYear";
+import { getContentMonthYear } from "@/utils/getContentYear";
 import CategoryNews from '@/components/CategoryNews';
 
 export const metadata: Metadata = {
-  title: `Best Debt Relief & Payoff Strategies ${getContentYear()} | RegularFolkFinance`,
+  title: `Best Debt Relief & Payoff Strategies for ${getContentMonthYear()} | RegularFolkFinance`,
   description: "Compare debt relief companies, consolidation loans, and payoff strategies based on 12,000+ real success stories. Find legitimate help, not scams.",
   alternates: {
     canonical: 'https://regularfolkfinance.com/debt',
@@ -162,7 +162,7 @@ export default function DebtPage() {
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#EF4444] text-white rounded-full text-sm font-semibold">DEBT</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
-              Debt Relief & Payoff Strategies That Actually Work
+              Best Debt Relief & Payoff Strategies for {getContentMonthYear()}
             </h1>
             <p className="text-xl text-[#1F2937] mb-6" style={{ lineHeight: '1.7' }}>
               We analyzed 12,000+ real debt payoff stories to find what actually works—and what's a scam.

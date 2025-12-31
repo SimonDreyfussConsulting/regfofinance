@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
-import { getContentYear } from "@/utils/getContentYear";
+import { getContentMonthYear } from "@/utils/getContentYear";
 import CategoryNews from '@/components/CategoryNews';
 
 export const metadata: Metadata = {
-  title: `Best Personal Loans ${getContentYear()} | RegularFolkFinance`,
+  title: `Best Personal Loans for ${getContentMonthYear()} | RegularFolkFinance`,
   description: "Compare personal loans based on 25,000+ real borrower reviews. Find lenders with fair rates and no hidden fees.",
   alternates: {
     canonical: 'https://regularfolkfinance.com/personal-loans',
@@ -93,7 +93,7 @@ export default function PersonalLoans() {
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#06B6D4] text-white rounded-full text-sm font-semibold">PERSONAL LOANS</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
-              Find the Right Personal Loan
+              Best Personal Loans for {getContentMonthYear()}
             </h1>
             <p className="text-xl text-[#1F2937] mb-6" style={{ lineHeight: '1.7' }}>
               Real borrowers share which lenders delivered on their promises. We analyzed 25,000+ experiences to find lenders with fair rates and no hidden fees.
