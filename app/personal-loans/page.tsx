@@ -2,9 +2,7 @@ import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import type { Metadata } from "next";
 import { getContentYear } from "@/utils/getContentYear";
-import LatestNews from '@/components/LatestNews';
-import FeaturedArticle, { FeaturedArticleData } from '@/components/FeaturedArticle';
-import { getLatestArticleByCategory } from '@/lib/articles';
+import CategoryNews from '@/components/CategoryNews';
 
 export const metadata: Metadata = {
   title: `Best Personal Loans ${getContentYear()} | RegularFolkFinance`,
@@ -85,26 +83,6 @@ const personalLenders = [
 ];
 
 export default function PersonalLoans() {
-  // Fetch on server - allowed because this is a Server Component
-  const article = getLatestArticleByCategory('personal-loans');
-
-  // Transform to FeaturedArticleData format
-  const featuredArticle: FeaturedArticleData | null = article
-    ? {
-        slug: article.slug,
-        title: article.title,
-        excerpt: article.excerpt,
-        category: article.category,
-        categoryLabel: article.categoryLabel,
-        publishedAt: article.date,
-        readTime: article.readTime,
-        featuredImage: article.featuredImage,
-        featuredImageAlt: article.featuredImageAlt,
-        isPublished: true,
-        communityDataPoints: article.communityDataPoints,
-      }
-    : null;
-
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -148,13 +126,6 @@ export default function PersonalLoans() {
               <div className="text-sm text-[#6B7280]">Average Funding Time</div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* FEATURED ARTICLE - Above the fold */}
-      <section className="py-8 px-4">
-        <div className="max-w-5xl mx-auto">
-          <FeaturedArticle pageCategory="personal-loans" article={featuredArticle} />
         </div>
       </section>
 
@@ -255,6 +226,9 @@ export default function PersonalLoans() {
         </div>
       </section>
 
+      {/* Latest News & Insights - Mid-page placement */}
+      <CategoryNews category="personal-loans" limit={3} title="Latest Personal Loan News" />
+
       {/* How We Research */}
       <section className="py-12 bg-[#F3F4F6]">
         <div className="container mx-auto px-4">
@@ -280,9 +254,6 @@ export default function PersonalLoans() {
           </div>
         </div>
       </section>
-
-      {/* Latest News */}
-      <LatestNews category="personal-loans" />
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] text-white">
