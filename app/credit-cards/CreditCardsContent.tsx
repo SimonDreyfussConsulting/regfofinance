@@ -5,7 +5,7 @@ import Navigation from "@/components/Navigation";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
-import FeaturedArticle, { FeaturedArticleData } from '@/components/FeaturedArticle';
+import CategoryNewsClient, { ArticlePreview } from '@/components/CategoryNewsClient';
 
 const creditCards = [
   {
@@ -231,10 +231,10 @@ const creditCards = [
 ];
 
 interface CreditCardsContentInnerProps {
-  featuredArticle: FeaturedArticleData | null;
+  articles: ArticlePreview[];
 }
 
-function CreditCardsContentInner({ featuredArticle }: CreditCardsContentInnerProps) {
+function CreditCardsContentInner({ articles }: CreditCardsContentInnerProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -292,13 +292,6 @@ function CreditCardsContentInner({ featuredArticle }: CreditCardsContentInnerPro
               (We're not financial advisors. We're just people who did a lot of research so you don't have to.)
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* FEATURED ARTICLE - Above the fold */}
-      <section className="py-8 px-4">
-        <div className="max-w-5xl mx-auto">
-          <FeaturedArticle pageCategory="credit-cards" article={featuredArticle} />
         </div>
       </section>
 
@@ -421,6 +414,9 @@ function CreditCardsContentInner({ featuredArticle }: CreditCardsContentInnerPro
         </div>
       </section>
 
+      {/* Latest News & Insights - Mid-page placement */}
+      <CategoryNewsClient articles={articles} category="credit-cards" title="Latest Credit Card News" />
+
       {/* How We Research */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -455,15 +451,15 @@ function CreditCardsContentInner({ featuredArticle }: CreditCardsContentInnerPro
 }
 
 interface CreditCardsContentProps {
-  featuredArticle: FeaturedArticleData | null;
+  articles: ArticlePreview[];
 }
 
-export default function CreditCardsContent({ featuredArticle }: CreditCardsContentProps) {
+export default function CreditCardsContent({ articles }: CreditCardsContentProps) {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
       <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-        <CreditCardsContentInner featuredArticle={featuredArticle} />
+        <CreditCardsContentInner articles={articles} />
       </Suspense>
     </div>
   );
