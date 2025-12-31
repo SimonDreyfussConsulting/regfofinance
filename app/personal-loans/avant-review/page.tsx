@@ -8,12 +8,12 @@ import { lenderData } from '@/lib/lender-data';
 const avant = lenderData.avant;
 
 export const metadata: Metadata = {
-  title: "Avant Personal Loans Review: Bad Credit Options (2025)",
+  title: "Avant Personal Loans Review: Bad Credit Options (2026)",
   description: `Avant accepts credit scores as low as ${avant.minCredit}. APR ${avant.apr}, fast ${avant.timeToFund} funding. See what real bad credit borrowers experienced.`,
   keywords: "Avant personal loan, bad credit loans, low credit score loans, Avant review, Avant APR",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Avant Personal Loans Review: Bad Credit Options (2025)",
+    title: "Avant Personal Loans Review: Bad Credit Options (2026)",
     description: "Avant accepts credit scores as low as 580. Fast funding for bad credit borrowers. See what 85+ real borrowers say.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/avant-review",
@@ -52,7 +52,7 @@ export default function AvantReview() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Avant Personal Loans Review: Bad Credit Options (2025)",
+            "headline": "Avant Personal Loans Review: Bad Credit Options (2026)",
             "description": `${avant.name} accepts credit scores as low as ${avant.minCredit}. APR ${avant.apr}.`,
             "author": {
               "@type": "Organization",

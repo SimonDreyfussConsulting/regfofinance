@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { lenderData } from '@/lib/lender-data';
 
 export const metadata: Metadata = {
-  title: "Best Personal Loans for Quick Approval & Fast Funding | 2025",
+  title: "Best Personal Loans for Quick Approval & Fast Funding | 2026",
   description: "Need money fast? Compare lenders with same-day and next-day funding. LightStream, Upstart, and Avant approve quickly. See what real borrowers experienced.",
   keywords: "fast personal loans, same-day funding, quick approval loans, emergency loans, fast cash",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Best Personal Loans for Quick Approval & Fast Funding | 2025",
+    title: "Best Personal Loans for Quick Approval & Fast Funding | 2026",
     description: "Compare the fastest personal loan lenders. Same-day and 1-day funding available from LightStream, Upstart, and Avant.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/best-quick-approval",

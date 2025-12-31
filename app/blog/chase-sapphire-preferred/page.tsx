@@ -222,7 +222,7 @@ export default function ChaseSapphirePreferredPost() {
                       <div className="p-4">
                         <p className="text-xs text-[#3B82F6] font-semibold mb-1">CREDIT CARDS</p>
                         <h4 className="font-bold text-[#1F2937] group-hover:text-[#3B82F6] transition-colors">
-                          Best Credit Cards 2025
+                          Best Credit Cards 2026
                         </h4>
                       </div>
                     </div>

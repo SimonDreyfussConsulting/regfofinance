@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { lenderData } from '@/lib/lender-data';
 
 export const metadata: Metadata = {
-  title: "Best Personal Loans for Fair Credit (600-679) | 2025",
+  title: "Best Personal Loans for Fair Credit (600-679) | 2026",
   description: "Compare the best personal loans for fair credit scores (600-679). Upstart, Marcus, and SoFi offer reasonable rates. See what real borrowers with fair credit experienced.",
   keywords: "fair credit loans, 620 credit score loans, 650 credit score loans, personal loans fair credit",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Best Personal Loans for Fair Credit (600-679) | 2025",
+    title: "Best Personal Loans for Fair Credit (600-679) | 2026",
     description: "Compare top lenders for fair credit. Upstart, Marcus, and SoFi offer reasonable rates for 600-679 scores.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/best-fair-credit",

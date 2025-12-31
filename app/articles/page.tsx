@@ -32,7 +32,7 @@ interface PlaceholderArticle {
 
 const PLACEHOLDER_ARTICLES: PlaceholderArticle[] = [
   {
-    slug: 'mint-shutdown-best-alternatives-2025',
+    slug: 'mint-shutdown-best-alternatives-2026',
     title: 'Mint Is Gone: The Best Alternatives According to Reddit',
     excerpt: 'We analyzed 500+ Reddit discussions from r/personalfinance, r/ynab, and r/budget to find what real budgeters recommend after Mint\'s shutdown.',
     category: 'budgeting',
@@ -55,8 +55,8 @@ const PLACEHOLDER_ARTICLES: PlaceholderArticle[] = [
     isPublished: false,
   },
   {
-    slug: 'chase-sapphire-vs-reserve-2025',
-    title: 'Chase Sapphire Preferred vs Reserve: 2025 Community Verdict',
+    slug: 'chase-sapphire-vs-reserve-2026',
+    title: 'Chase Sapphire Preferred vs Reserve: 2026 Community Verdict',
     excerpt: 'After analyzing 5,200+ Reddit discussions, here\'s which Sapphire card real travelers actually recommend based on spending habits.',
     category: 'credit-cards',
     categoryLabel: 'Credit Cards',
@@ -90,8 +90,8 @@ const PLACEHOLDER_ARTICLES: PlaceholderArticle[] = [
     isPublished: false,
   },
   {
-    slug: 'five-money-moves-january-2025',
-    title: '5 Money Moves for January 2025',
+    slug: 'five-money-moves-january-2026',
+    title: '5 Money Moves for January 2026',
     excerpt: 'New year, new financial habits. These are the five things the personal finance community recommends doing this month.',
     category: 'money-tips',
     categoryLabel: 'Money Tips',

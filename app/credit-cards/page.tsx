@@ -5,7 +5,7 @@ import { getLatestArticles } from '@/lib/articles';
 import CreditCardsContent from './CreditCardsContent';
 
 export const metadata: Metadata = {
-  title: 'Best Credit Cards 2025 | RegularFolkFinance',
+  title: 'Best Credit Cards 2026 | RegularFolkFinance',
   description: 'Compare the best credit cards based on real user experiences from Reddit and finance communities.',
 };
 

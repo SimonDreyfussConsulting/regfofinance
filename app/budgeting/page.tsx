@@ -7,7 +7,7 @@ import { FeaturedArticleData } from '@/components/FeaturedArticle';
 import LatestNews from '@/components/LatestNews';
 
 export const metadata: Metadata = {
-  title: 'Best Budgeting Tools 2025 | RegularFolkFinance',
+  title: 'Best Budgeting Tools 2026 | RegularFolkFinance',
   description: 'Compare the best budgeting apps and tools based on real user experiences from Reddit and finance communities.',
 };
 

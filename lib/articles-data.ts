@@ -58,8 +58,8 @@ export const CATEGORY_COLORS: Record<ArticleCategory, string> = {
 // Placeholder articles for categories without MDX content yet
 export const PLACEHOLDER_ARTICLES: Article[] = [
   {
-    slug: 'best-balance-transfer-cards-2025',
-    title: 'Best Balance Transfer Cards for 2025',
+    slug: 'best-balance-transfer-cards-2026',
+    title: 'Best Balance Transfer Cards for 2026',
     excerpt: 'Analysis of 3,200+ Reddit discussions reveals which balance transfer cards actually help people pay down debt faster.',
     author: 'RegularFolkFinance Research Team',
     publishedAt: '2025-01-15',
@@ -85,7 +85,7 @@ export const PLACEHOLDER_ARTICLES: Article[] = [
   },
   {
     slug: 'side-hustles-that-actually-work',
-    title: 'Side Hustles That Actually Work in 2025',
+    title: 'Side Hustles That Actually Work in 2026',
     excerpt: 'Real income reports from 2,500+ Reddit users on what side gigs are worth your time.',
     author: 'RegularFolkFinance Research Team',
     publishedAt: '2025-01-05',

@@ -8,31 +8,31 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Tiller Money Review 2025: What 100+ Spreadsheet Lovers Say",
+  title: "Tiller Money Review 2026: What 100+ Spreadsheet Lovers Say",
   description: "Is Tiller Money worth $79/year? We analyzed 100+ Reddit reviews to find out. See how Tiller compares to YNAB and Monarch for spreadsheet budgeting.",
   keywords: "Tiller Money review, Tiller budgeting, spreadsheet budgeting, Tiller vs YNAB, Tiller vs Monarch, Google Sheets budgeting, automated budgeting spreadsheet",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Tiller Money Review 2025: What 100+ Spreadsheet Lovers Say",
+    title: "Tiller Money Review 2026: What 100+ Spreadsheet Lovers Say",
     description: "Is Tiller Money worth $79/year? We analyzed 100+ Reddit reviews to find out. See how Tiller compares to YNAB and Monarch.",
     type: "article",
     url: "https://regularfolkfinance.com/budgeting/tiller-money-review",
     images: [
       {
-        url: "https://regularfolkfinance.com/images/budgeting/tiller-review/tiller-money-review-featured-image-2025.jpg",
+        url: "https://regularfolkfinance.com/images/budgeting/tiller-review/tiller-money-review-featured-image-2026.jpg",
         width: 1200,
         height: 630,
         alt: "Tiller Money Review - 100+ Real User Experiences"
       }
     ],
-    publishedTime: "2025-12-09T00:00:00Z",
-    modifiedTime: "2025-12-09T00:00:00Z",
+    publishedTime: "2026-12-09T00:00:00Z",
+    modifiedTime: "2026-12-09T00:00:00Z",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tiller Money Review 2025: What 100+ Spreadsheet Lovers Say",
+    title: "Tiller Money Review 2026: What 100+ Spreadsheet Lovers Say",
     description: "Is Tiller Money worth $79/year? We analyzed 100+ Reddit reviews to find out.",
-    images: ["https://regularfolkfinance.com/images/budgeting/tiller-review/tiller-money-review-featured-image-2025.jpg"],
+    images: ["https://regularfolkfinance.com/images/budgeting/tiller-review/tiller-money-review-featured-image-2026.jpg"],
   },
   alternates: {
     canonical: "https://regularfolkfinance.com/budgeting/tiller-money-review",
@@ -49,7 +49,7 @@ export default function TillerMoneyReview() {
   const tocItems = [
     { id: 'what-is-tiller', text: 'What Is Tiller Money?', level: 2 },
     { id: 'how-it-works', text: 'How Tiller Works', level: 2 },
-    { id: 'ai-features', text: '2025: AI Categorization', level: 2 },
+    { id: 'ai-features', text: '2026: AI Categorization', level: 2 },
     { id: 'what-users-love', text: 'What Users Love', level: 2 },
     { id: 'common-complaints', text: 'Common Complaints', level: 2 },
     { id: 'pricing', text: 'Pricing Comparison', level: 2 },
@@ -73,9 +73,9 @@ export default function TillerMoneyReview() {
               {
                 "@type": "Article",
                 "@id": "https://regularfolkfinance.com/budgeting/tiller-money-review#article",
-                "headline": "Tiller Money Review 2025: What 100+ Spreadsheet Lovers Say",
+                "headline": "Tiller Money Review 2026: What 100+ Spreadsheet Lovers Say",
                 "description": "We analyzed 100+ real Tiller Money experiences from Reddit and forums to determine if it's worth $79/year.",
-                "image": "https://regularfolkfinance.com/images/budgeting/tiller-review/tiller-money-review-featured-image-2025.jpg",
+                "image": "https://regularfolkfinance.com/images/budgeting/tiller-review/tiller-money-review-featured-image-2026.jpg",
                 "author": {
                   "@type": "Organization",
                   "name": "RegularFolkFinance",
@@ -89,8 +89,8 @@ export default function TillerMoneyReview() {
                     "url": "https://regularfolkfinance.com/logo.png"
                   }
                 },
-                "datePublished": "2025-12-09T00:00:00Z",
-                "dateModified": "2025-12-09T00:00:00Z",
+                "datePublished": "2026-12-09T00:00:00Z",
+                "dateModified": "2026-12-09T00:00:00Z",
                 "mainEntityOfPage": {
                   "@type": "WebPage",
                   "@id": "https://regularfolkfinance.com/budgeting/tiller-money-review"
@@ -218,14 +218,14 @@ export default function TillerMoneyReview() {
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#06B6D4] text-white rounded-full text-sm font-semibold">BUDGETING</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
-              Tiller Money Review 2025: What 100+ Spreadsheet Lovers Say
+              Tiller Money Review 2026: What 100+ Spreadsheet Lovers Say
             </h1>
             <p className="text-sm text-[#6B7280] italic mb-4">
               (We analyzed real experiences from Reddit, forums, and power users so you don&apos;t have to.)
             </p>
             <ArticleByline
               wordCount={2800}
-              publishDate="Dec 9, 2025"
+              publishDate="Dec 9, 2026"
             />
           </div>
         </div>
@@ -305,7 +305,7 @@ export default function TillerMoneyReview() {
               <figure className="my-8">
                 <div className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden">
                   <Image
-                    src="/images/budgeting/tiller-review/tiller-money-review-featured-image-2025.jpg"
+                    src="/images/budgeting/tiller-review/tiller-money-review-featured-image-2026.jpg"
                     alt="Person using Tiller Money on laptop to manage budget spreadsheet"
                     fill
                     className="object-cover"
@@ -363,7 +363,7 @@ export default function TillerMoneyReview() {
               <figure className="my-8">
                 <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB]">
                   <Image
-                    src="/images/budgeting/tiller-review/how-tiller-money-works-infographic-2025.png"
+                    src="/images/budgeting/tiller-review/how-tiller-money-works-infographic-2026.png"
                     alt="Infographic: How Tiller syncs bank data to Google Sheets or Excel"
                     width={800}
                     height={320}
@@ -399,7 +399,7 @@ export default function TillerMoneyReview() {
 
               {/* SECTION: AI Features */}
               <h2 id="ai-features" className="text-3xl font-bold mt-12 mb-6 text-[#1F2937]">
-                2025: AI Categorization Changes Everything
+                2026: AI Categorization Changes Everything
               </h2>
 
               <p className="text-[17px] text-[#1F2937] leading-relaxed mb-4" style={{ lineHeight: '1.7' }}>
@@ -445,7 +445,7 @@ export default function TillerMoneyReview() {
               <figure className="my-8">
                 <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB] shadow-sm">
                   <Image
-                    src="/images/budgeting/tiller-review/tiller-money-reddit-user-testimonial-2025.png"
+                    src="/images/budgeting/tiller-review/tiller-money-reddit-user-testimonial-2026.png"
                     alt="Reddit testimonial about Tiller Money"
                     width={800}
                     height={400}
@@ -491,7 +491,7 @@ export default function TillerMoneyReview() {
               <figure className="my-8">
                 <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB] shadow-sm">
                   <Image
-                    src="/images/budgeting/tiller-review/tiller-dashboard-spreadsheet-mockup-2025.png"
+                    src="/images/budgeting/tiller-review/tiller-dashboard-spreadsheet-mockup-2026.png"
                     alt="Tiller Money Foundation Template dashboard"
                     width={800}
                     height={467}
@@ -530,7 +530,7 @@ export default function TillerMoneyReview() {
               <figure className="my-8">
                 <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB] shadow-sm">
                   <Image
-                    src="/images/budgeting/tiller-review/tiller-money-pros-cons-comparison-2025.png"
+                    src="/images/budgeting/tiller-review/tiller-money-pros-cons-comparison-2026.png"
                     alt="Tiller Money pros and cons comparison"
                     width={800}
                     height={467}
@@ -579,7 +579,7 @@ export default function TillerMoneyReview() {
               <figure className="my-8">
                 <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB]">
                   <Image
-                    src="/images/budgeting/tiller-review/tiller-money-pricing-comparison-chart-2025.png"
+                    src="/images/budgeting/tiller-review/tiller-money-pricing-comparison-chart-2026.png"
                     alt="Tiller pricing vs YNAB vs Monarch comparison"
                     width={800}
                     height={480}
@@ -657,7 +657,7 @@ export default function TillerMoneyReview() {
               <figure className="my-8">
                 <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB]">
                   <Image
-                    src="/images/budgeting/tiller-review/tiller-vs-ynab-comparison-infographic-2025.png"
+                    src="/images/budgeting/tiller-review/tiller-vs-ynab-comparison-infographic-2026.png"
                     alt="Tiller vs YNAB head-to-head comparison"
                     width={800}
                     height={533}
@@ -741,7 +741,7 @@ export default function TillerMoneyReview() {
               <figure className="my-8">
                 <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB] shadow-sm">
                   <Image
-                    src="/images/budgeting/tiller-review/tiller-spreadsheet-templates-showcase-2025.png"
+                    src="/images/budgeting/tiller-review/tiller-spreadsheet-templates-showcase-2026.png"
                     alt="Tiller Money spreadsheet templates showcase"
                     width={800}
                     height={400}
@@ -971,7 +971,7 @@ export default function TillerMoneyReview() {
                       <li>
                         <Link href="/budgeting" className="text-[#06B6D4] hover:underline flex items-center">
                           <span className="mr-2">-</span>
-                          Best Budgeting Apps 2025 Comparison
+                          Best Budgeting Apps 2026 Comparison
                         </Link>
                       </li>
                       <li>

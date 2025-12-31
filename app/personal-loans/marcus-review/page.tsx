@@ -8,12 +8,12 @@ import { lenderData } from '@/lib/lender-data';
 const marcus = lenderData.marcus;
 
 export const metadata: Metadata = {
-  title: "Marcus by Goldman Sachs Personal Loans Review (2025)",
+  title: "Marcus by Goldman Sachs Personal Loans Review (2026)",
   description: `Marcus offers ${marcus.apr} APR with ${marcus.fees.toLowerCase()}. Backed by Goldman Sachs with flexible payment options. See what real borrowers say.`,
   keywords: "Marcus personal loan, Marcus by Goldman Sachs, Goldman Sachs loans, no fee personal loans, debt consolidation loans",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Marcus by Goldman Sachs Personal Loans Review (2025)",
+    title: "Marcus by Goldman Sachs Personal Loans Review (2026)",
     description: "Marcus offers competitive rates with zero fees and Goldman Sachs backing. See what 90+ real borrowers experienced.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/marcus-review",
@@ -52,7 +52,7 @@ export default function MarcusReview() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Marcus by Goldman Sachs Personal Loans Review (2025)",
+            "headline": "Marcus by Goldman Sachs Personal Loans Review (2026)",
             "description": `${marcus.name} offers ${marcus.apr} APR with ${marcus.fees.toLowerCase()}.`,
             "author": {
               "@type": "Organization",

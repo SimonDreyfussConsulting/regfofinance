@@ -160,7 +160,7 @@ export default function BudgetingContent({ featuredArticle }: BudgetingContentPr
       <section className="bg-gradient-to-b from-white to-gray-50 py-12 px-4 sm:py-16">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4" style={{ fontFamily: '"Source Sans Pro", sans-serif' }}>
-            Best Budgeting Tools in 2025
+            Best Budgeting Tools in 2026
           </h1>
           <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto" style={{ fontFamily: '"Source Sans Pro", sans-serif' }}>
             Based on real user experiences from Reddit and finance communities

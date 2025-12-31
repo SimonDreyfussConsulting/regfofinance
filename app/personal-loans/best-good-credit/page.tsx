@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { lenderData } from '@/lib/lender-data';
 
 export const metadata: Metadata = {
-  title: "Best Personal Loans for Good Credit (680-740) | 2025",
+  title: "Best Personal Loans for Good Credit (680-740) | 2026",
   description: "Compare the best personal loans for good credit scores (680-740). Marcus, SoFi, and LightStream offer competitive rates with no fees. See what real borrowers experienced.",
   keywords: "personal loans good credit, 680 credit score loans, 700 credit score loans, best rates good credit",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Best Personal Loans for Good Credit (680-740) | 2025",
+    title: "Best Personal Loans for Good Credit (680-740) | 2026",
     description: "Compare top lenders for good credit scores. Marcus, SoFi, and LightStream offer competitive rates with no fees.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/best-good-credit",

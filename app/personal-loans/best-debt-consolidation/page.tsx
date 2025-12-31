@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { lenderData } from '@/lib/lender-data';
 
 export const metadata: Metadata = {
-  title: "Best Personal Loans for Debt Consolidation | 2025",
+  title: "Best Personal Loans for Debt Consolidation | 2026",
   description: "Compare the best debt consolidation loans. Marcus, SoFi, and LightStream offer low rates with zero fees to consolidate credit card debt. See real borrower experiences.",
   keywords: "debt consolidation loans, consolidate credit card debt, best debt consolidation, lower interest rate",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Best Personal Loans for Debt Consolidation | 2025",
+    title: "Best Personal Loans for Debt Consolidation | 2026",
     description: "Compare top debt consolidation lenders. Marcus, SoFi, and LightStream offer zero fees and low rates.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/best-debt-consolidation",

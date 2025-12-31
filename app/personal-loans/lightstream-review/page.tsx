@@ -8,12 +8,12 @@ import { lenderData } from '@/lib/lender-data';
 const lightstream = lenderData.lightstream;
 
 export const metadata: Metadata = {
-  title: "LightStream Personal Loans Review: Excellent Credit Required (2025)",
+  title: "LightStream Personal Loans Review: Excellent Credit Required (2026)",
   description: `LightStream offers ${lightstream.apr} APR with ${lightstream.fees.toLowerCase()} and same-day funding. Excellent credit (700+) required. See real borrower experiences.`,
   keywords: "LightStream personal loan, LightStream review, same-day funding, excellent credit loans, Rate Beat program",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "LightStream Personal Loans Review: Excellent Credit Required (2025)",
+    title: "LightStream Personal Loans Review: Excellent Credit Required (2026)",
     description: "LightStream offers same-day funding and a Rate Beat program for borrowers with excellent credit. See what 75+ real borrowers experienced.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/lightstream-review",
@@ -52,7 +52,7 @@ export default function LightStreamReview() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "LightStream Personal Loans Review: Excellent Credit Required (2025)",
+            "headline": "LightStream Personal Loans Review: Excellent Credit Required (2026)",
             "description": `${lightstream.name} offers ${lightstream.apr} APR with ${lightstream.fees.toLowerCase()}.`,
             "author": {
               "@type": "Organization",

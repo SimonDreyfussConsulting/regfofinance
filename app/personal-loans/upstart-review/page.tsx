@@ -8,12 +8,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Upstart Personal Loans Review: What 100+ Borrowers Say (2025 Data)",
+  title: "Upstart Personal Loans Review: What 100+ Borrowers Say (2026 Data)",
   description: "We analyzed 100+ real Upstart personal loan experiences. Learn about AI-powered approvals, APRs (6.5%-35.99%), origination fees, funding times, and how Upstart compares to SoFi and Marcus.",
   keywords: "Upstart personal loan, Upstart loan review, Upstart APR rates, AI lending, fair credit personal loans, Upstart vs SoFi, debt consolidation",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Upstart Personal Loans Review: What 100+ Borrowers Say (2025 Data)",
+    title: "Upstart Personal Loans Review: What 100+ Borrowers Say (2026 Data)",
     description: "We analyzed 100+ real Upstart experiences. AI approvals, real APRs, origination fees, and competitor comparisons.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/upstart-review",
@@ -25,12 +25,12 @@ export const metadata: Metadata = {
         alt: "Upstart Personal Loans Review - 100+ Real Borrower Experiences"
       }
     ],
-    publishedTime: "2025-12-02T00:00:00Z",
-    modifiedTime: "2025-12-02T00:00:00Z",
+    publishedTime: "2026-12-02T00:00:00Z",
+    modifiedTime: "2026-12-02T00:00:00Z",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Upstart Personal Loans Review: What 100+ Borrowers Say (2025 Data)",
+    title: "Upstart Personal Loans Review: What 100+ Borrowers Say (2026 Data)",
     description: "We analyzed 100+ real Upstart experiences. AI approvals, APRs, fees, and comparisons.",
     images: ["https://regularfolkfinance.com/images/reviews/upstart/featured.jpg"],
   },
@@ -70,7 +70,7 @@ export default function UpstartPersonalLoansReview() {
               {
                 "@type": "Article",
                 "@id": "https://regularfolkfinance.com/personal-loans/upstart-review#article",
-                "headline": "Upstart Personal Loans Review: What 100+ Borrowers Say (2025 Data)",
+                "headline": "Upstart Personal Loans Review: What 100+ Borrowers Say (2026 Data)",
                 "description": "We analyzed 100+ real Upstart personal loan experiences from Reddit and forums.",
                 "image": "https://regularfolkfinance.com/images/reviews/upstart/featured.jpg",
                 "author": {
@@ -86,8 +86,8 @@ export default function UpstartPersonalLoansReview() {
                     "url": "https://regularfolkfinance.com/logo.png"
                   }
                 },
-                "datePublished": "2025-12-02T00:00:00Z",
-                "dateModified": "2025-12-02T00:00:00Z",
+                "datePublished": "2026-12-02T00:00:00Z",
+                "dateModified": "2026-12-02T00:00:00Z",
                 "mainEntityOfPage": {
                   "@type": "WebPage",
                   "@id": "https://regularfolkfinance.com/personal-loans/upstart-review"
@@ -208,14 +208,14 @@ export default function UpstartPersonalLoansReview() {
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#06B6D4] text-white rounded-full text-sm font-semibold">PERSONAL LOANS</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
-              Upstart Personal Loans Review: What 100+ Borrowers Say (2025 Data)
+              Upstart Personal Loans Review: What 100+ Borrowers Say (2026 Data)
             </h1>
             <p className="text-sm text-[#6B7280] italic mb-4">
               (We analyzed real experiences from Reddit, Trustpilot, and financial forums so you don&apos;t have to.)
             </p>
             <ArticleByline 
               wordCount={2850} 
-              publishDate="Dec 2, 2025" 
+              publishDate="Dec 2, 2026" 
             />
           </div>
         </div>
@@ -600,7 +600,7 @@ export default function UpstartPersonalLoansReview() {
               <UserQuote
                 quote="I just got approved for my 3rd loan after having paid off my other 2 over the course of 5 years. I am thrilled with the ease and flexibility to pay off higher interest credit cards."
                 author="Jennifer"
-                context="Trustpilot verified review, November 2025"
+                context="Trustpilot verified review, November 2026"
               />
 
               {/* SECTION: The Bad */}

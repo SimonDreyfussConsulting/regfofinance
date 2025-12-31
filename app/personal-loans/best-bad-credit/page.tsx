@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { lenderData } from '@/lib/lender-data';
 
 export const metadata: Metadata = {
-  title: "Best Personal Loans for Bad Credit (Below 600) | 2025",
+  title: "Best Personal Loans for Bad Credit (Below 600) | 2026",
   description: "Compare personal loans for bad credit scores below 600. Avant, Upstart, and credit unions accept lower scores. See real borrower experiences and avoid predatory lenders.",
   keywords: "bad credit loans, 580 credit score loans, loans for poor credit, personal loans bad credit",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "Best Personal Loans for Bad Credit (Below 600) | 2025",
+    title: "Best Personal Loans for Bad Credit (Below 600) | 2026",
     description: "Compare lenders that accept bad credit. Avant and Upstart approve scores as low as 580-600.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/best-bad-credit",

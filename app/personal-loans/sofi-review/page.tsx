@@ -8,12 +8,12 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: "What 127+ Borrowers Really Think About SoFi Personal Loans (2025)",
+  title: "What 127+ Borrowers Really Think About SoFi Personal Loans (2026)",
   description: "We analyzed 127+ real SoFi personal loan experiences. Learn about approval rates, APRs (5.99%-16.92%), funding times, and how SoFi compares to Marcus, Upstart, and LightStream.",
   keywords: "SoFi personal loan, SoFi loan review, SoFi APR rates, personal loan comparison, debt consolidation, Marcus vs SoFi, credit score requirements",
   authors: [{ name: "RegularFolkFinance Research Team" }],
   openGraph: {
-    title: "What 127+ Borrowers Really Think About SoFi Personal Loans (2025)",
+    title: "What 127+ Borrowers Really Think About SoFi Personal Loans (2026)",
     description: "We analyzed 127+ real SoFi personal loan experiences. Learn about approval rates, APRs, funding times, and how SoFi compares to competitors.",
     type: "article",
     url: "https://regularfolkfinance.com/personal-loans/sofi-review",
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         alt: "SoFi Personal Loans Review - 127+ Real Borrower Experiences"
       }
     ],
-    publishedTime: "2025-11-19T00:00:00Z",
-    modifiedTime: "2025-11-19T00:00:00Z",
+    publishedTime: "2026-11-19T00:00:00Z",
+    modifiedTime: "2026-11-19T00:00:00Z",
 
   },
   twitter: {
     card: "summary_large_image",
-    title: "What 127+ Borrowers Really Think About SoFi Personal Loans (2025)",
+    title: "What 127+ Borrowers Really Think About SoFi Personal Loans (2026)",
     description: "We analyzed 127+ real SoFi experiences. APRs, approval rates, funding times, and competitor comparisons.",
     images: ["https://regularfolkfinance.com/images/sofi-personal-loans-og.jpg"],
   },
@@ -71,7 +71,7 @@ export default function SoFiPersonalLoansReview() {
               {
                 "@type": "Article",
                 "@id": "https://regularfolkfinance.com/personal-loans/sofi-review#article",
-                "headline": "What 127+ Borrowers Really Think About SoFi Personal Loans (2025 Data)",
+                "headline": "What 127+ Borrowers Really Think About SoFi Personal Loans (2026 Data)",
                 "description": "We analyzed 127+ real SoFi personal loan experiences. Learn about approval rates, APRs (5.99%-16.92%), funding times, and how SoFi compares to Marcus, Upstart, and LightStream.",
                 "image": "https://regularfolkfinance.com/images/sofi-personal-loans-og.jpg",
                 "author": {
@@ -87,8 +87,8 @@ export default function SoFiPersonalLoansReview() {
                     "url": "https://regularfolkfinance.com/logo.png"
                   }
                 },
-                "datePublished": "2025-11-19T00:00:00Z",
-                "dateModified": "2025-11-19T00:00:00Z",
+                "datePublished": "2026-11-19T00:00:00Z",
+                "dateModified": "2026-11-19T00:00:00Z",
                 "mainEntityOfPage": {
                   "@type": "WebPage",
                   "@id": "https://regularfolkfinance.com/personal-loans/sofi-review"
@@ -217,15 +217,15 @@ export default function SoFiPersonalLoansReview() {
           <div className="max-w-4xl">
             <span className="inline-block mb-4 px-3 py-1 bg-[#06B6D4] text-white rounded-full text-sm font-semibold">PERSONAL LOANS</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F2937]">
-              What 127+ Borrowers Really Think About SoFi Personal Loans (2025 Data)
+              What 127+ Borrowers Really Think About SoFi Personal Loans (2026 Data)
             </h1>
             <p className="text-sm text-[#6B7280] italic mb-4">
               (We analyzed real experiences from Reddit and MyFICO Forums so you don&apos;t have to.)
             </p>
             <ArticleByline 
               wordCount={2800} 
-              publishDate="Nov 19, 2025" 
-              updateDate="Dec 2, 2025" 
+              publishDate="Nov 19, 2026" 
+              updateDate="Dec 2, 2026" 
             />
           </div>
         </div>
