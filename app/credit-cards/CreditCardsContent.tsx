@@ -239,8 +239,8 @@ function CreditCardsContentInner({ articles }: CreditCardsContentInnerProps) {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  // Dynamic year - updates automatically
-  const currentYear = new Date().getFullYear();
+  // Year for display
+  const currentYear = 2026;
 
   useEffect(() => {
     const category = searchParams.get('category') || 'all';
