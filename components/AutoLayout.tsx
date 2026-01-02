@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Author from './Author';
+import Footer from './Footer';
 import { ReactNode } from 'react';
 
 interface AutoLayoutProps {
@@ -10,10 +11,10 @@ interface AutoLayoutProps {
 
 export default function AutoLayout({ children }: AutoLayoutProps) {
   const pathname = usePathname();
-  
-  const isReviewOrArticle = 
-    pathname.includes('-review') || 
-    pathname.includes('review-') || 
+
+  const isReviewOrArticle =
+    pathname.includes('-review') ||
+    pathname.includes('review-') ||
     pathname.includes('/articles/');
 
   return (
@@ -26,6 +27,7 @@ export default function AutoLayout({ children }: AutoLayoutProps) {
           </div>
         </div>
       )}
+      <Footer />
     </>
   );
 }

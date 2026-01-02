@@ -21,6 +21,7 @@ import Blockquote from '@/components/Blockquote';
 import ArticleImage from '@/components/ArticleImage';
 import AtAGlance from '@/components/AtAGlance';
 import UserQuote from '@/components/UserQuote';
+import SocialShare, { SocialShareInline } from '@/components/SocialShare';
 
 // Define MDX components available in articles
 const mdxComponents = {
@@ -165,6 +166,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       />
       <Navigation />
 
+      {/* Social Share Floating Bar */}
+      <SocialShare title={article.title} slug={slug} />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#06B6D4]/10 to-[#3B82F6]/10 pt-4 pb-12 md:pb-16">
         <Breadcrumbs />
@@ -280,6 +284,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <div className="mt-12">
               <ArticleCTA tags={article.tags || []} />
             </div>
+
+            {/* Inline Share Buttons (desktop only - mobile shown in SocialShare component) */}
+            <SocialShareInline title={article.title} slug={slug} />
 
             {/* Author Section */}
             <div className="mt-12 pt-8 border-t border-[#6B7280]/20">
