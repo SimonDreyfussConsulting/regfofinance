@@ -6,7 +6,7 @@ import SocialFollow from './SocialFollow';
 const handleDocumentationClick = () => {
   const password = prompt('Enter password:');
   if (password === 'Yankees881!') {
-    window.location.href = 'https://claude.ai/public/artifacts/c3743da3-f699-4f96-a87d-afa7a2024026';
+    window.open('https://claude.ai/public/artifacts/071e9041-8735-4b6d-8c77-ff6fd8f658ce', '_blank', 'noopener,noreferrer');
   } else if (password !== null) {
     alert('Access denied');
   }
@@ -108,6 +108,8 @@ export default function Footer() {
                 <button
                   onClick={handleDocumentationClick}
                   className="text-[#D1D5DB] hover:text-[#06B6D4] transition-colors text-sm"
+                  data-nofollow="true"
+                  data-noindex="true"
                 >
                   Documentation
                 </button>
