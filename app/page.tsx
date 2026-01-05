@@ -525,16 +525,23 @@ export default function Home() {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Get our weekly newsletter with the latest research, comparison updates, and real user stories.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+          <form
+            action="https://buttondown.com/api/emails/embed-subscribe/regularfolkfinance"
+            method="POST"
+            target="_blank"
+            className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto"
+          >
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg text-gray-900"
+              required
             />
-            <button className="px-6 py-3 bg-white text-[#3B82F6] hover:bg-gray-100 font-semibold rounded-lg transition">
+            <button type="submit" className="px-6 py-3 bg-white text-[#3B82F6] hover:bg-gray-100 font-semibold rounded-lg transition">
               Subscribe Free
             </button>
-          </div>
+          </form>
           <p className="text-sm mt-4 opacity-75">
             No spam. Unsubscribe anytime. We respect your privacy.
           </p>

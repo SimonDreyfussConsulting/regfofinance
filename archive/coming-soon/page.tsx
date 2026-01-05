@@ -62,16 +62,23 @@ export default function ComingSoon() {
             <h3 className="font-semibold text-gray-900 mb-3 text-center">
               Get notified when we launch
             </h3>
-            <div className="flex flex-col gap-3">
+            <form
+              action="https://buttondown.com/api/emails/embed-subscribe/regularfolkfinance"
+              method="POST"
+              target="_blank"
+              className="flex flex-col gap-3"
+            >
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent"
+                required
               />
-              <button className="w-full px-6 py-3 bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white font-semibold rounded-lg hover:shadow-lg transition">
+              <button type="submit" className="w-full px-6 py-3 bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white font-semibold rounded-lg hover:shadow-lg transition">
                 Notify Me
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
