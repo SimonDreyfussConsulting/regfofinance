@@ -102,7 +102,7 @@ const homepageSchema = {
       "sameAs": [
         "https://twitter.com/regularfolkfin",
         "https://reddit.com/r/regularfolkfinance",
-        "https://linkedin.com/company/regularfolkfinance"
+        "https://www.linkedin.com/company/regularfolkfinance"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -577,7 +577,7 @@ export default function Home() {
               <div className="flex flex-col gap-2 text-sm text-gray-600">
                 <a href="https://twitter.com/regularfolkfin" target="_blank" rel="noopener noreferrer">Twitter</a>
                 <a href="https://reddit.com/r/regularfolkfinance" target="_blank" rel="noopener noreferrer">Reddit</a>
-                <a href="https://linkedin.com/company/regularfolkfinance" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.linkedin.com/company/regularfolkfinance" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <Link href="/newsletter">Newsletter</Link>
               </div>
             </div>

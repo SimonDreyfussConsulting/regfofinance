@@ -22,7 +22,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/company/regularfolkfinance',
+    href: 'https://www.linkedin.com/company/regularfolkfinance',
     ariaLabel: 'Follow us on LinkedIn',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
