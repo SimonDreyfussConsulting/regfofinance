@@ -1,18 +1,17 @@
-import type { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Meet Scout — The AI Behind RegularFolkFinance',
-  description: 'How we use a 7-brain AI system to analyze 100+ financial news sources and create data-driven personal finance content at scale.',
-  openGraph: {
-    title: 'Meet Scout — The AI Behind RegularFolkFinance',
-    description: 'How we use a 7-brain AI system to analyze 100+ financial news sources and create data-driven personal finance content at scale.',
-    type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+import { useState, useEffect, useRef } from 'react';
+
+// SHA-256 hashes — no plaintext passwords in source
+const LAYER1_HASH = '0ef0f7273981407cb1737c35debd3b9488d0c9bfe03761be0fcd41897b8e534c';
+const LAYER2_HASH = '993f16a21e6b6a6b20a16045cd5f4fc2beb422ff4542142c0475597bf3af94c8';
+
+async function sha256(message: string): Promise<string> {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 const brains = [
   { name: 'Topic Analyzer', desc: 'Scores and ranks incoming topics from RSS feeds by relevance, recency, and audience fit.', status: 'operational' as const },
@@ -59,6 +58,85 @@ const pipelineSteps = [
 ];
 
 export default function ScoutPage() {
+  const [authLayer, setAuthLayer] = useState<0 | 1 | 2>(0);
+  const [password, setPassword] = useState('');
+  const [shaking, setShaking] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const session = sessionStorage.getItem('scout-auth');
+      if (session === '2') setAuthLayer(2);
+      else if (session === '1') setAuthLayer(1);
+    }
+  }, []);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, [authLayer]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const hash = await sha256(password);
+
+    if (authLayer === 0 && hash === LAYER1_HASH) {
+      setAuthLayer(1);
+      setPassword('');
+      sessionStorage.setItem('scout-auth', '1');
+    } else if (authLayer === 1 && hash === LAYER2_HASH) {
+      setAuthLayer(2);
+      setPassword('');
+      sessionStorage.setItem('scout-auth', '2');
+    } else {
+      setShaking(true);
+      setTimeout(() => setShaking(false), 500);
+      setPassword('');
+    }
+  };
+
+  // Password gate
+  if (authLayer < 2) {
+    return (
+      <>
+        <style jsx global>{`
+          @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            50% { transform: translateX(8px); }
+            75% { transform: translateX(-8px); }
+          }
+          .shake { animation: shake 0.4s ease-in-out; }
+        `}</style>
+        <div className="min-h-[60vh] flex items-center justify-center px-4 py-20">
+          <form onSubmit={handleSubmit} className={`bg-white border border-gray-200 rounded-xl p-8 w-full max-w-sm shadow-lg ${shaking ? 'shake' : ''}`}>
+            <div className="text-center mb-6">
+              <span className="text-3xl mb-3 block">{authLayer === 0 ? '\uD83D\uDD12' : '\uD83D\uDD10'}</span>
+              <h1 className="text-xl font-bold text-[#1F2937]">
+                {authLayer === 0 ? 'Private Content' : 'Verify Access'}
+              </h1>
+            </div>
+            <input
+              ref={inputRef}
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 bg-[#F9FAFB] border border-gray-200 rounded-lg text-[#1F2937] placeholder-gray-400 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-colors"
+              placeholder="Enter password"
+              autoComplete="off"
+            />
+            <button
+              type="submit"
+              className="w-full mt-4 py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-lg transition-colors"
+            >
+              Enter
+            </button>
+          </form>
+        </div>
+      </>
+    );
+  }
+
+  // Authenticated content
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}

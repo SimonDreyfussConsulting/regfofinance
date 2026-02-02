@@ -29,6 +29,8 @@ const footerLinks = {
       { name: 'All Articles', href: '/articles' },
       { name: 'Budgeting Tips', href: '/budgeting' },
       { name: 'News & Updates', href: '/news' },
+      { name: 'How We Work', href: '/scout' },
+      { name: 'Team Notes', href: '/prep' },
     ],
   },
   company: {
@@ -140,17 +142,9 @@ export default function Footer() {
               &copy; {currentYear} RegularFolkFinance. All rights reserved.
             </p>
           </div>
-          <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-            <p className="text-[#6B7280] text-xs text-center">
-              The content on this site is for informational purposes only. Always consult with a qualified financial advisor before making financial decisions.
-            </p>
-            <Link
-              href="/scout"
-              className="text-[#6B7280] hover:text-[#06B6D4] transition-colors text-xs whitespace-nowrap"
-            >
-              Built with Scout AI
-            </Link>
-          </div>
+          <p className="mt-4 text-[#6B7280] text-xs text-center">
+            The content on this site is for informational purposes only. Always consult with a qualified financial advisor before making financial decisions.
+          </p>
         </div>
       </div>
     </footer>
