@@ -1,17 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-
-// SHA-256 hashes of passwords — no plaintext passwords in source
-const LAYER1_HASH = '0ef0f7273981407cb1737c35debd3b9488d0c9bfe03761be0fcd41897b8e534c';
-const LAYER2_HASH = '993f16a21e6b6a6b20a16045cd5f4fc2beb422ff4542142c0475597bf3af94c8';
-
-async function sha256(message: string): Promise<string> {
-  const msgBuffer = new TextEncoder().encode(message);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
+import { useState, useRef } from 'react';
 
 // Accordion component
 function Accordion({ title, defaultOpen = false, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
@@ -61,36 +50,16 @@ function MindsetCard({ text }: { text: string }) {
 }
 
 export default function PrepPage() {
-  const [authLayer, setAuthLayer] = useState<0 | 1 | 2>(0);
+  const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [shaking, setShaking] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Check session storage on mount
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const session = sessionStorage.getItem('prep-auth');
-      if (session === '2') setAuthLayer(2);
-      else if (session === '1') setAuthLayer(1);
-    }
-  }, []);
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, [authLayer]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const hash = await sha256(password);
-
-    if (authLayer === 0 && hash === LAYER1_HASH) {
-      setAuthLayer(1);
+    if (password === 'Elliebelly22') {
+      setAuthenticated(true);
       setPassword('');
-      sessionStorage.setItem('prep-auth', '1');
-    } else if (authLayer === 1 && hash === LAYER2_HASH) {
-      setAuthLayer(2);
-      setPassword('');
-      sessionStorage.setItem('prep-auth', '2');
     } else {
       setShaking(true);
       setTimeout(() => setShaking(false), 500);
@@ -98,8 +67,8 @@ export default function PrepPage() {
     }
   };
 
-  // Password gate screens
-  if (authLayer < 2) {
+  // Password gate
+  if (!authenticated) {
     return (
       <>
         <style jsx global>{`
@@ -116,10 +85,8 @@ export default function PrepPage() {
         <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
           <form onSubmit={handleSubmit} className={`bg-gray-900 border border-gray-800 rounded-xl p-8 w-full max-w-sm shadow-2xl ${shaking ? 'shake' : ''}`}>
             <div className="text-center mb-6">
-              <span className="text-3xl mb-3 block">{authLayer === 0 ? '\uD83D\uDD12' : '\uD83D\uDD10'}</span>
-              <h1 className="text-xl font-bold text-white">
-                {authLayer === 0 ? 'Private Notes' : 'Verify Access'}
-              </h1>
+              <span className="text-3xl mb-3 block">{'\uD83D\uDD12'}</span>
+              <h1 className="text-xl font-bold text-white">Private Notes</h1>
             </div>
             <input
               ref={inputRef}
@@ -129,6 +96,7 @@ export default function PrepPage() {
               className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-colors"
               placeholder="Enter password"
               autoComplete="off"
+              autoFocus
             />
             <button
               type="submit"

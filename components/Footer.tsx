@@ -29,7 +29,7 @@ const footerLinks = {
       { name: 'All Articles', href: '/articles' },
       { name: 'Budgeting Tips', href: '/budgeting' },
       { name: 'News & Updates', href: '/news' },
-      { name: 'How We Work', href: '/scout' },
+      { name: 'How We Work', href: 'https://claude.ai/public/artifacts/f9bf8b1f-c6c2-4a70-9588-b187164b2ad0', external: true },
       { name: 'Team Notes', href: '/prep' },
     ],
   },
@@ -79,12 +79,23 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.resources.links.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-[#D1D5DB] hover:text-[#06B6D4] transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
+                  {'external' in link && link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#D1D5DB] hover:text-[#06B6D4] transition-colors text-sm"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-[#D1D5DB] hover:text-[#06B6D4] transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
