@@ -29,7 +29,7 @@ const footerLinks = {
       { name: 'All Articles', href: '/articles' },
       { name: 'Budgeting Tips', href: '/budgeting' },
       { name: 'News & Updates', href: '/news' },
-      { name: 'How We Work', href: 'https://claude.ai/public/artifacts/f9bf8b1f-c6c2-4a70-9588-b187164b2ad0', external: true },
+      { name: 'How We Work', href: 'https://claude.ai/public/artifacts/917bf368-e0a1-42ab-9a11-7d695311f12f', external: true },
       { name: 'Team Notes', href: '/prep' },
     ],
   },
