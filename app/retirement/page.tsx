@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { getContentMonthYear } from "@/utils/getContentYear";
 import CategoryNews from '@/components/CategoryNews';
@@ -210,6 +211,86 @@ export default function RetirementPage() {
                 Consider your timeline, risk tolerance, and consult a financial advisor if you're unsure.
                 We're just sharing what worked for regular folks like us.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Partner: Kapitalwise */}
+      <section className="py-12 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white border-2 border-emerald-300 rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="px-3 py-1 bg-[#FB923C] text-white rounded-full text-xs font-bold">FEATURED</span>
+                <span className="px-3 py-1 border border-[#10B981] text-[#10B981] rounded text-xs font-semibold">Find a Financial Advisor</span>
+              </div>
+              <div className="grid md:grid-cols-[120px_1fr] gap-6">
+                <div className="flex items-start justify-center">
+                  <div className="w-24 h-24 bg-gray-50 rounded-lg flex items-center justify-center p-3">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src="/images/retirement/kapitalwise-logo.png"
+                        alt="Kapitalwise logo"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#1F2937]">Kapitalwise AdvisorConnect</h2>
+                  <div className="flex items-center gap-3 text-sm text-[#6B7280] mb-3">
+                    <span className="font-semibold text-[#1F2937]">8.5/10</span>
+                    <span>-</span>
+                    <span>Since 2018</span>
+                    <span>-</span>
+                    <span className="text-green-600 font-semibold">Free for consumers</span>
+                  </div>
+                  <p className="text-[#1F2937] mb-4" style={{ lineHeight: '1.7' }}>
+                    Not sure where to start? Kapitalwise uses AI to match you with vetted fiduciary financial advisors — completely free. Fill out a form, get matched within 48 hours, no obligation.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2 text-sm text-[#1F2937]">
+                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>AI-driven matching with vetted fiduciary advisors</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-[#1F2937]">
+                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>100% free for consumers — advisors pay Kapitalwise</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-[#1F2937]">
+                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Get matched within 48 hours, no obligation</span>
+                    </li>
+                  </ul>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href="https://www.awin1.com/cread.php?awinmid=113822&awinaffid=2683750&clickref=retirement-landing&ued=https%3A%2F%2Fkapitalwise.com%2Fdemo"
+                      target="_blank"
+                      rel="noopener noreferrer sponsored"
+                      className="flex-1 bg-[#10B981] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#10B981]/90 transition-colors text-center"
+                    >
+                      Find Your Financial Advisor
+                    </a>
+                    <Link
+                      href="/retirement/kapitalwise-review"
+                      className="flex-1 bg-white border-2 border-[#3B82F6] text-[#3B82F6] font-semibold py-3 px-6 rounded-lg hover:bg-[#EFF6FF] transition-colors text-center"
+                    >
+                      Read our full review
+                    </Link>
+                  </div>
+                  <p className="text-xs text-[#6B7280] mt-3">
+                    We may earn a commission if you sign up. This helps keep our research free. We only recommend services we&apos;ve thoroughly researched.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { getContentMonthYear } from "@/utils/getContentYear";
 import CategoryNews from '@/components/CategoryNews';
@@ -210,6 +211,86 @@ export default function DebtPage() {
                 Legitimate companies only charge after settling debts. Check BBB ratings and read reviews before signing anything.
                 When in doubt, start with a free consultation from an NFCC-certified nonprofit.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Partner: CreditFirm.net */}
+      <section className="py-12 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white border-2 border-red-300 rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="px-3 py-1 bg-[#FB923C] text-white rounded-full text-xs font-bold">FEATURED</span>
+                <span className="px-3 py-1 border border-[#EF4444] text-[#EF4444] rounded text-xs font-semibold">Credit Report Repair</span>
+              </div>
+              <div className="grid md:grid-cols-[120px_1fr] gap-6">
+                <div className="flex items-start justify-center">
+                  <div className="w-24 h-24 bg-gray-50 rounded-lg flex items-center justify-center p-3">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src="/images/debt/creditfirm-logo.png"
+                        alt="CreditFirm.net logo"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#1F2937]">CreditFirm.net</h2>
+                  <div className="flex items-center gap-3 text-sm text-[#6B7280] mb-3">
+                    <span className="font-semibold text-[#1F2937]">8.0/10</span>
+                    <span>-</span>
+                    <span>Since 1997</span>
+                    <span>-</span>
+                    <span className="text-green-600 font-semibold">BBB A+ Rated</span>
+                  </div>
+                  <p className="text-[#1F2937] mb-4" style={{ lineHeight: '1.7' }}>
+                    If your credit report has errors or outdated items holding your score back, CreditFirm.net has been helping consumers navigate the dispute process since 1997. Over 80,000 consumers helped across all 50 states.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2 text-sm text-[#1F2937]">
+                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>BBB A+ rated, licensed credit services organization</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-[#1F2937]">
+                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>80,000+ consumers helped since 1997</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-[#1F2937]">
+                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#10B981]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Available in all 50 states</span>
+                    </li>
+                  </ul>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href="https://www.awin1.com/awclick.php?gid=531789&mid=88625&awinaffid=2683750&linkid=4056354&clickref=debt-landing"
+                      target="_blank"
+                      rel="noopener noreferrer sponsored"
+                      className="flex-1 bg-[#EF4444] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#EF4444]/90 transition-colors text-center"
+                    >
+                      Check Your Options
+                    </a>
+                    <Link
+                      href="/debt/creditfirm-review"
+                      className="flex-1 bg-white border-2 border-[#3B82F6] text-[#3B82F6] font-semibold py-3 px-6 rounded-lg hover:bg-[#EFF6FF] transition-colors text-center"
+                    >
+                      Read our full review
+                    </Link>
+                  </div>
+                  <p className="text-xs text-[#6B7280] mt-3">
+                    We may earn a commission if you sign up. This helps keep our research free. We only recommend services we&apos;ve thoroughly researched.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
