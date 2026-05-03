@@ -1,0 +1,40 @@
+name: Scout v3 Pipeline
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r scout/requirements.txt
+      - name: Run pipeline
+        run: cd scout && bash pipeline.sh
+        env:
+          ANTHROPIC_API_KEY:          ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY:             ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY:             ${{ secrets.GEMINI_API_KEY }}
+          DEEPSEEK_API_KEY:           ${{ secrets.DEEPSEEK_API_KEY }}
+          SUPABASE_URL:               ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY:  ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_ANON_KEY:          ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_DB_PASSWORD:       ${{ secrets.SUPABASE_DB_PASSWORD }}
+          GITHUB_PAT:                 ${{ secrets.SCOUT_GITHUB_PAT }}
+          GITHUB_USERNAME:            ${{ secrets.GITHUB_USERNAME }}
+          GITHUB_REPO:                ${{ secrets.GITHUB_REPO }}
+          PEXELS_API_KEY:             ${{ secrets.PEXELS_API_KEY }}
+          UNSPLASH_ACCESS_KEY:        ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          CLOUDINARY_CLOUD_NAME:      ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY:         ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET:      ${{ secrets.CLOUDINARY_API_SECRET }}
+          TELEGRAM_BOT_TOKEN:         ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:           ${{ secrets.TELEGRAM_CHAT_ID }}
+          AWIN_PUBLISHER_ID:          ${{ secrets.AWIN_PUBLISHER_ID }}
+          GOOGLE_PROJECT_ID:          ${{ secrets.GOOGLE_PROJECT_ID }}
