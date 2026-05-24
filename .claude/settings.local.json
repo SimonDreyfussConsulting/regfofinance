@@ -10,7 +10,8 @@
       "Bash(npm install:*)",
       "Bash(if not exist \"public\\\\images\\\\articles\" mkdir \"public\\\\images\\\\articles\")",
       "Bash(node scripts/generate-placeholder.js:*)",
-      "Bash(git mv *)"
+      "Bash(git mv *)",
+      "Bash(git add *)"
     ]
   }
 }
