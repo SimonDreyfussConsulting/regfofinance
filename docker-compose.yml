@@ -1,0 +1,23 @@
+# Brings up Postgres for local Commonwealth Main development.
+# Usage is documented in README.md.
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: commonwealth-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: commonwealth
+      POSTGRES_PASSWORD: commonwealth
+      POSTGRES_DB: commonwealth
+    ports:
+      - "5432:5432"
+    volumes:
+      - commonwealth_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U commonwealth -d commonwealth"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  commonwealth_pgdata:
