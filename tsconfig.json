@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@db/*": ["db/*"],
+      "@ingestion/*": ["ingestion/*"],
+      "@normalization/*": ["normalization/*"],
+      "@gateway/*": ["gateway/*"],
+      "@ops/*": ["ops/*"],
+      "@intelligence/*": ["intelligence/*"],
+      "@advisor/*": ["advisor/*"]
+    }
+  },
+  "include": [
+    "db/**/*.ts",
+    "ingestion/**/*.ts",
+    "normalization/**/*.ts",
+    "gateway/**/*.ts",
+    "ops/**/*.ts",
+    "intelligence/**/*.ts",
+    "advisor/**/*.ts",
+    "drizzle.config.ts"
+  ],
+  "exclude": ["node_modules", "web", "frontend"]
+}
